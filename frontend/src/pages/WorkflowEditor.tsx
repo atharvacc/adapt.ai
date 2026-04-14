@@ -3077,6 +3077,9 @@ function EditWorkspace({ node, runId, allVariants, allPlatformNodes = [], onFeed
         final_text: finalText,
         user_instruction: instruction,
       })
+      if (action === 'edit' && finalText) {
+        setLastSyncedText(finalText)
+      }
       onFeedback?.()
       setHistoryKey((k) => k + 1)
       setShowDiffPreview(false)
@@ -3098,7 +3101,7 @@ function EditWorkspace({ node, runId, allVariants, allPlatformNodes = [], onFeed
         { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ node_id: node.id }) },
       )
       if (resp.ok) {
-        queryClient.invalidateQueries({ queryKey: ['run', runId] })
+        queryClient.invalidateQueries({ queryKey: ['workflow-run', runId] })
         onFeedback?.()
       }
     } catch { /* swallow */ }
