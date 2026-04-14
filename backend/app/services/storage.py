@@ -17,7 +17,9 @@ _MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "minioadmin")
 _MINIO_BUCKET = os.getenv("MINIO_BUCKET", "adapt-uploads")
 _MINIO_SECURE = os.getenv("MINIO_SECURE", "false").lower() == "true"
 
-LOCAL_UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "uploads")
+LOCAL_UPLOAD_DIR = os.path.join(
+    os.path.dirname(__file__), "..", "..", "uploads",
+)
 
 _minio_client = None
 
@@ -59,32 +61,6 @@ def upload_image(file_bytes: bytes, filename: str) -> str:
             return f"{protocol}://{_MINIO_ENDPOINT}/{_MINIO_BUCKET}/{key}"
         except Exception:
             log.warning("MinIO upload failed, falling back to local")
-
-    os.makedirs(LOCAL_UPLOAD_DIR, exist_ok=True)
-    path = os.path.join(LOCAL_UPLOAD_DIR, key)
-    with open(path, "wb") as f:
-        f.write(file_bytes)
-    host = os.getenv("BACKEND_HOST", "http://localhost:8000")
-    return f"{host}/uploads/{key}"
-
-
-def upload_video(file_bytes: bytes, filename: str) -> str:
-    ext = os.path.splitext(filename)[1] or ".mp4"
-    key = f"{uuid.uuid4().hex}{ext}"
-
-    client = _get_minio()
-    if client:
-        try:
-            client.put_object(
-                _MINIO_BUCKET, key,
-                io.BytesIO(file_bytes), len(file_bytes),
-                content_type=f"video/{ext.lstrip('.')}",
-            )
-            protocol = "https" if _MINIO_SECURE else "http"
-            url = f"{protocol}://{_MINIO_ENDPOINT}/{_MINIO_BUCKET}/{key}"
-            return url
-        except Exception:
-            log.warning("MinIO video upload failed, falling back to local")
 
     os.makedirs(LOCAL_UPLOAD_DIR, exist_ok=True)
     path = os.path.join(LOCAL_UPLOAD_DIR, key)

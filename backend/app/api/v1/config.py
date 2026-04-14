@@ -45,5 +45,5 @@ def settings_status(db: Session = Depends(get_db)) -> dict:
         "x": bool(get_config(db, "x_client_id")),
         "linkedin": bool(get_config(db, "linkedin_client_id")),
         "instagram": bool(get_config(db, "facebook_app_id")),
-        "tiktok": bool(get_config(db, "tiktok_client_key")),
+        "facebook": bool(get_config(db, "facebook_app_id")),
     }

@@ -28,7 +28,7 @@ PLATFORM_IMAGE_SPECS: dict[str, dict] = {
     "linkedin": {"size": "1536x1024", "quality": "medium"},
     "x":        {"size": "1024x1024", "quality": "medium"},
     "instagram": {"size": "1024x1536", "quality": "high"},
-    "tiktok":   {"size": "1024x1536", "quality": "high"},
+    "facebook": {"size": "1024x1024", "quality": "high"},
 }
 
 

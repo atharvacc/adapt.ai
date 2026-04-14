@@ -86,7 +86,6 @@ class ResearchOutput(BaseModel):
     risks: list[str] = Field(default_factory=list)
     rationale: str = ""
     contract_valid: bool = True
-    raw_payload: dict[str, Any] = Field(default_factory=dict)
 
 
 class RationaleStruct(BaseModel):
@@ -106,7 +105,6 @@ class VariantContract(BaseModel):
     consistency_score: int = 75
     rationale_struct: RationaleStruct | None = None
     image_prompt: str = ""
-    video_prompt: str = ""
 
 
 ACTIVITY_CAPABILITIES: dict[str, dict[str, Any]] = {
@@ -198,13 +196,21 @@ def _claude_call(
     run_meta: dict | None = None,
 ) -> tuple[str, dict]:
     """Claude call via ChatAnthropic (auto-traced by LangSmith)."""
+    global _chat_model, _chat_model_key
     from langchain_core.messages import SystemMessage, HumanMessage
+    import anthropic as _anthropic_mod
     model = _get_chat_model().bind(max_tokens=max_tokens)
     messages = [SystemMessage(content=system), HumanMessage(content=user)]
     config: dict[str, Any] = {}
     if run_meta:
         config["metadata"] = run_meta
-    resp = model.invoke(messages, config=config)
+    try:
+        resp = model.invoke(messages, config=config)
+    except _anthropic_mod.AuthenticationError:
+        _chat_model = None
+        _chat_model_key = None
+        model = _get_chat_model().bind(max_tokens=max_tokens)
+        resp = model.invoke(messages, config=config)
     usage = {}
     if resp.usage_metadata:
         usage = {
@@ -267,6 +273,15 @@ XPOZ_PLATFORM_TOOLS: dict[str, list[str]] = {
         "getInstagramCommentsByPostId",
         "getInstagramPostInteractingUsers",
     ],
+    "facebook": [
+        "searchFacebookUsers",
+        "getFacebookUser",
+        "getFacebookUsersByKeywords",
+        "getFacebookPostsByKeywords",
+        "getFacebookPostsByUser",
+        "getFacebookCommentsByPostId",
+        "getFacebookPostInteractingUsers",
+    ],
 }
 
 XPOZ_ACTIVITY_HINTS: dict[str, dict[str, list[str]]] = {
@@ -281,6 +296,11 @@ XPOZ_ACTIVITY_HINTS: dict[str, dict[str, list[str]]] = {
             "getInstagramPostsByKeywords",
             "getInstagramPostInteractingUsers",
         ],
+        "facebook": [
+            "getFacebookUsersByKeywords",
+            "getFacebookPostsByKeywords",
+            "getFacebookPostInteractingUsers",
+        ],
     },
     "trends_listening": {
         "x": [
@@ -292,6 +312,10 @@ XPOZ_ACTIVITY_HINTS: dict[str, dict[str, list[str]]] = {
             "getInstagramPostsByKeywords",
             "getInstagramCommentsByPostId",
         ],
+        "facebook": [
+            "getFacebookPostsByKeywords",
+            "getFacebookCommentsByPostId",
+        ],
     },
     "competitor_industry": {
         "x": [
@@ -302,6 +326,10 @@ XPOZ_ACTIVITY_HINTS: dict[str, dict[str, list[str]]] = {
         "instagram": [
             "getInstagramPostsByUser",
             "getInstagramPostsByKeywords",
+        ],
+        "facebook": [
+            "getFacebookPostsByUser",
+            "getFacebookPostsByKeywords",
         ],
     },
     "brand_knowledge": {},
@@ -325,6 +353,14 @@ XPOZ_QUESTION_TEMPLATES: dict[str, dict[str, str]] = {
             "getInstagramPostsByKeywords and "
             "getInstagramPostInteractingUsers."
         ),
+        "facebook": (
+            "Search recent Facebook posts about '{topic}' to find: "
+            "which audience segments engage most, what content "
+            "formats get the highest engagement (links, photos, "
+            "videos, groups), and what posting patterns drive "
+            "the most interaction. Use getFacebookPostsByKeywords "
+            "and getFacebookPostInteractingUsers."
+        ),
     },
     "trends_listening": {
         "x": (
@@ -339,6 +375,13 @@ XPOZ_QUESTION_TEMPLATES: dict[str, dict[str, str]] = {
             "Look for: popular hashtags, hook patterns in "
             "captions, and high-engagement comment threads. "
             "Use getInstagramPostsByKeywords."
+        ),
+        "facebook": (
+            "Find trending Facebook content about '{topic}'. "
+            "Look for: viral shares, hook patterns in first "
+            "lines, trending topics in groups, and high-engagement "
+            "comment threads. Use getFacebookPostsByKeywords "
+            "and getFacebookCommentsByPostId."
         ),
     },
     "competitor_industry": {
@@ -356,6 +399,14 @@ XPOZ_QUESTION_TEMPLATES: dict[str, dict[str, str]] = {
             "captions and hooks used, and content gaps. "
             "Use getInstagramPostsByKeywords and "
             "getInstagramPostsByUser."
+        ),
+        "facebook": (
+            "Analyze competitor Facebook content about "
+            "'{topic}'. Find: what hooks and formats drive "
+            "engagement, what topics generate shares, gaps in "
+            "coverage, and community engagement patterns. "
+            "Use getFacebookPostsByKeywords and "
+            "getFacebookPostsByUser."
         ),
     },
 }
@@ -458,14 +509,17 @@ def _xpoz_research(
     kw_tools = {
         "getTwitterPostsByKeywords",
         "getInstagramPostsByKeywords",
+        "getFacebookPostsByKeywords",
     }
     user_tools = {
         "getTwitterUsersByKeywords",
         "getInstagramUsersByKeywords",
+        "getFacebookUsersByKeywords",
     }
     author_tools = {
         "getTwitterPostsByAuthor",
         "getInstagramPostsByUser",
+        "getFacebookPostsByUser",
     }
 
     if primary_tool in kw_tools:
@@ -534,16 +588,22 @@ def _normalize_research_contract(
     activity: str,
     payload: dict[str, Any],
 ) -> dict[str, Any]:
-    """Coerce worker outputs into a strict explainability contract."""
-    summary = str(payload.get("summary") or "")[:1200]
-    rationale = str(payload.get("rationale") or "")[:1200]
+    """Coerce worker outputs into a strict explainability contract.
+
+    Handles both contract-conforming outputs (summary, key_findings, etc.)
+    and domain-specific outputs (audience_insights, trending_topics, etc.)
+    by extracting and converting domain keys into standardized findings.
+    """
+    summary = str(payload.get("summary") or "")[:2000]
+    rationale = str(payload.get("rationale") or "")[:2000]
     hooks = payload.get("recommended_hooks")
     risks = payload.get("risks")
 
+    # ── Extract findings from explicit key_findings first ────────────
     findings: list[dict[str, Any]] = []
     raw_findings = payload.get("key_findings")
     if isinstance(raw_findings, list):
-        for i, item in enumerate(raw_findings[:8], start=1):
+        for i, item in enumerate(raw_findings[:12], start=1):
             if isinstance(item, dict):
                 findings.append({
                     "evidence_id": item.get("evidence_id") or f"{activity}:{i}",
@@ -559,43 +619,145 @@ def _normalize_research_contract(
                     "claim": item,
                     "source_type": "derived",
                     "source_ref": "",
-                    "snippet": item[:240],
+                    "snippet": item[:400],
                     "confidence": 0.6,
                 })
 
+    # ── Fallback: extract from domain-specific keys ──────────────────
+    # Workers return keys like audience_insights, trending_topics, etc.
+    # Convert these into standardized findings.
+    _SKIP_KEYS = {
+        "summary", "rationale", "key_findings", "recommended_hooks",
+        "risks", "_research_source", "error", "contract_valid",
+        "raw_payload", "activity",
+    }
     if not findings:
-        base_claim = summary or rationale or json.dumps(payload)[:240]
+        idx = 1
+        for key, value in payload.items():
+            if key in _SKIP_KEYS:
+                continue
+            category = key.replace("_", " ").title()
+            if isinstance(value, list):
+                for item in value[:6]:
+                    text = str(item.get("claim", "")) if isinstance(item, dict) else str(item)
+                    if not text.strip():
+                        text = json.dumps(item)[:400] if isinstance(item, dict) else str(item)[:400]
+                    source_ref = ""
+                    if isinstance(item, dict):
+                        source_ref = str(item.get("source", item.get("source_ref", item.get("url", ""))))
+                    findings.append({
+                        "evidence_id": f"{activity}:{idx}",
+                        "claim": text[:600],
+                        "source_type": category,
+                        "source_ref": source_ref,
+                        "snippet": text[:400],
+                        "confidence": 0.7,
+                    })
+                    idx += 1
+            elif isinstance(value, str) and len(value.strip()) > 10:
+                findings.append({
+                    "evidence_id": f"{activity}:{idx}",
+                    "claim": value[:600],
+                    "source_type": category,
+                    "source_ref": "",
+                    "snippet": value[:400],
+                    "confidence": 0.7,
+                })
+                idx += 1
+            elif isinstance(value, dict):
+                for sub_key, sub_val in value.items():
+                    text = str(sub_val)[:600] if sub_val else ""
+                    if text.strip():
+                        findings.append({
+                            "evidence_id": f"{activity}:{idx}",
+                            "claim": f"{sub_key.replace('_', ' ').title()}: {text}",
+                            "source_type": category,
+                            "source_ref": "",
+                            "snippet": text[:400],
+                            "confidence": 0.6,
+                        })
+                        idx += 1
+
+    if not findings:
+        base_claim = summary or rationale or "No specific findings extracted."
         findings = [{
             "evidence_id": f"{activity}:1",
-            "claim": base_claim,
+            "claim": base_claim[:600],
             "source_type": "derived",
             "source_ref": "",
-            "snippet": base_claim[:240],
+            "snippet": base_claim[:400],
             "confidence": 0.5,
         }]
 
+    # ── Build summary from domain content if not explicitly provided ──
+    if not summary:
+        summary_parts: list[str] = []
+        for key, value in payload.items():
+            if key in _SKIP_KEYS:
+                continue
+            if isinstance(value, str) and len(value) > 20:
+                summary_parts.append(value[:300])
+            elif isinstance(value, list) and value:
+                first_items = value[:3]
+                for item in first_items:
+                    text = str(item) if isinstance(item, str) else (
+                        item.get("claim", item.get("insight", str(item)))
+                        if isinstance(item, dict) else str(item)
+                    )
+                    summary_parts.append(str(text)[:200])
+        summary = " | ".join(summary_parts)[:2000] if summary_parts else (
+            findings[0]["claim"][:500] if findings else "Research completed."
+        )
+
+    # ── Extract hooks from domain-specific keys if not provided ──────
+    if not isinstance(hooks, list) or not hooks:
+        hooks = []
+        hook_keys = {"hook_patterns", "engagement_triggers", "optimal_formats",
+                     "recommended_hooks", "hooks"}
+        for hk in hook_keys:
+            raw_hooks = payload.get(hk)
+            if isinstance(raw_hooks, list):
+                for h in raw_hooks[:4]:
+                    text = str(h) if isinstance(h, str) else (
+                        h.get("pattern", h.get("hook", h.get("format", str(h))))
+                        if isinstance(h, dict) else str(h)
+                    )
+                    hooks.append(str(text)[:200])
+
+    # ── Extract risks from domain-specific keys if not provided ──────
+    if not isinstance(risks, list) or not risks:
+        risks = []
+        risk_keys = {"risks", "gaps_to_exploit", "warnings", "concerns"}
+        for rk in risk_keys:
+            raw_risks = payload.get(rk)
+            if isinstance(raw_risks, list):
+                for r in raw_risks[:4]:
+                    text = str(r) if isinstance(r, str) else (
+                        r.get("risk", r.get("gap", str(r)))
+                        if isinstance(r, dict) else str(r)
+                    )
+                    risks.append(str(text)[:200])
+
     merged = {
         "activity": activity,
-        "summary": summary or findings[0]["claim"][:300],
-        "key_findings": findings,
-        "recommended_hooks": hooks if isinstance(hooks, list) else [],
-        "risks": risks if isinstance(risks, list) else [],
+        "summary": summary,
+        "key_findings": findings[:12],
+        "recommended_hooks": hooks[:8],
+        "risks": risks[:6],
         "rationale": rationale or "Research synthesized from available context.",
         "contract_valid": True,
-        "raw_payload": payload,
     }
     try:
         return ResearchOutput.model_validate(merged).model_dump()
     except ValidationError:
         return {
             "activity": activity,
-            "summary": str(summary)[:300],
-            "key_findings": findings[:1],
-            "recommended_hooks": [],
-            "risks": [],
+            "summary": str(summary)[:500],
+            "key_findings": findings[:3],
+            "recommended_hooks": hooks[:3],
+            "risks": risks[:3],
             "rationale": "Contract coercion fallback.",
             "contract_valid": False,
-            "raw_payload": payload,
         }
 
 
@@ -660,6 +822,126 @@ def _format_voice_profile(voice: dict, platform: str) -> str:
         sections.append(f"Web Research Insights: {web_notes}")
 
     return "\n\n".join(sections) if sections else "(Brand voice has no data)"
+
+
+def _format_persona_profile(persona: dict) -> str:
+    """Build a structured, human-readable writing persona for LLM prompts."""
+    if not persona:
+        return "(No writing persona configured)"
+
+    sections: list[str] = []
+
+    name = persona.get("name")
+    if name:
+        sections.append(f"Persona: {name}")
+
+    desc = persona.get("description")
+    if desc:
+        sections.append(f"Description: {desc}")
+
+    approach = persona.get("writing_approach")
+    if approach:
+        sections.append(f"Writing Approach: {approach}")
+
+    tone = persona.get("tone")
+    if tone:
+        sections.append(f"Tone: {tone}")
+
+    structure = persona.get("structure_preference")
+    if structure:
+        sections.append(f"Structure Preference: {structure}")
+
+    style_examples = persona.get("style_examples")
+    if style_examples:
+        if isinstance(style_examples, list):
+            items = "\n".join(f'- "{ex}"' for ex in style_examples[:5])
+        else:
+            items = str(style_examples)
+        sections.append(f"Style Examples:\n{items}")
+
+    platform_rules = persona.get("platform_specific_rules") or {}
+    if platform_rules:
+        for plat, rule in platform_rules.items():
+            sections.append(f"Platform Rule ({plat}): {rule}")
+
+    enabled_tools = persona.get("enabled_tools") or []
+    if enabled_tools:
+        sections.append(f"Research Activities: {', '.join(enabled_tools)}")
+
+    return "\n\n".join(sections) if sections else "(Writing persona has no data)"
+
+
+def _format_audience_profiles(audiences: list[dict]) -> str:
+    """Build a structured, human-readable audience summary for LLM prompts."""
+    if not audiences:
+        return "(No audience personas configured)"
+
+    blocks: list[str] = []
+    for i, aud in enumerate(audiences, 1):
+        parts: list[str] = []
+        name = aud.get("name", f"Audience {i}")
+        parts.append(f"### Audience {i}: {name}")
+
+        desc = aud.get("description")
+        if desc:
+            parts.append(f"Description: {desc}")
+
+        demo = aud.get("demographics")
+        if demo:
+            if isinstance(demo, dict):
+                pairs = ", ".join(f"{k}: {v}" for k, v in demo.items())
+                parts.append(f"Demographics: {pairs}")
+            else:
+                parts.append(f"Demographics: {demo}")
+
+        interests = aud.get("interests") or aud.get("tags_positive") or []
+        if interests:
+            parts.append(f"Interests: {', '.join(str(t) for t in interests[:10])}")
+
+        pain_points = aud.get("pain_points") or aud.get("tags_negative") or []
+        if pain_points:
+            parts.append(f"Pain Points / Avoid: {', '.join(str(t) for t in pain_points[:10])}")
+
+        platforms = aud.get("platforms") or []
+        if platforms:
+            parts.append(f"Active Platforms: {', '.join(platforms)}")
+
+        behavior = aud.get("behavior_notes") or aud.get("notes")
+        if behavior:
+            parts.append(f"Behavior Notes: {behavior}")
+
+        blocks.append("\n".join(parts))
+
+    return "\n\n".join(blocks)
+
+
+def _format_rule_set(rule_set: dict) -> str:
+    """Build a structured, human-readable rule set for LLM prompts."""
+    if not rule_set:
+        return "(No rule set configured)"
+
+    sections: list[str] = []
+    name = rule_set.get("name")
+    if name:
+        sections.append(f"Rule Set: {name}")
+
+    desc = rule_set.get("description")
+    if desc:
+        sections.append(f"Description: {desc}")
+
+    rules = rule_set.get("rules") or []
+    if rules:
+        lines: list[str] = []
+        for r in rules:
+            if isinstance(r, dict):
+                enforcement = r.get("enforcement", "suggested")
+                rname = r.get("name", "Unnamed")
+                rdesc = r.get("description") or r.get("condition", "")
+                lines.append(f"- [{enforcement.upper()}] {rname}: {rdesc}")
+        if lines:
+            sections.append("Rules:\n" + "\n".join(lines))
+
+    return "\n\n".join(sections) if sections else "(Rule set has no data)"
 
 
 # ─── 0. Source Image Analyzer ────────────────────────────────────────────────
@@ -775,15 +1057,14 @@ def planner_agent(state: PipelineState) -> dict:
         migrated & ACTIVITY_HANDLERS.keys(),
     ) if migrated else list(ACTIVITY_HANDLERS.keys())
 
-    audience_names = ", ".join(
-        a.get("name", "Unknown") for a in state.get("audience_profiles", [])
-    ) or "General audience"
+    voice_ctx = _format_voice_profile(state.get("voice_profile") or {}, state["platform"])
+    persona_ctx = _format_persona_profile(persona)
+    audience_ctx = _format_audience_profiles(state.get("audience_profiles") or [])
+    rules_ctx = _format_rule_set(state.get("rule_set") or {})
 
     pref_block = ""
     if state.get("preference_summary"):
         pref_block = f"\n\nUser Preference History:\n{state['preference_summary']}"
-
-    voice_name = (state.get("voice_profile") or {}).get("name", "Not set")
 
     capability_registry = "\n".join(
         f"- {k}: {v['purpose']} | evidence={v['evidence_types']}"
@@ -791,26 +1072,35 @@ def planner_agent(state: PipelineState) -> dict:
     )
     system = "You are a content strategy planner. Output valid JSON only."
     user = f"""Given this source content for {state['platform']}:
-"{state['source_content'][:500]}"
+"{state['source_content'][:800]}"
 
-Brand Voice: {voice_name}
-Writing Persona: {persona.get('name', 'Default')}
-Audiences: {audience_names}
+## Brand Voice
+{voice_ctx}
+
+## Writing Persona
+{persona_ctx}
+
+## Target Audiences
+{audience_ctx}
+
+## Rules
+{rules_ctx}
 {pref_block}
 
 The writer's research activities are: {json.dumps(activities)}
 Agent capability registry:
 {capability_registry}
 
-For EACH activity, produce a targeted research query and focus area.
+For EACH activity, produce a targeted research query and focus area that
+directly addresses the brand voice, audience needs, and persona style above.
 Output JSON object where keys are the activity names:
 {{
   "activity_name": {{
-    "query": "specific search/retrieval query",
-    "focus": "what to look for and why",
-    "why_this_agent": "why this activity is best suited",
+    "query": "specific search/retrieval query informed by the voice, audience, and persona",
+    "focus": "what to look for and why — reference specific voice attributes or audience traits",
+    "why_this_agent": "why this activity is best suited given the context",
     "expected_evidence_types": ["type1", "type2"],
-    "success_criteria": "what good output looks like"
+    "success_criteria": "what good output looks like for this specific brief"
   }}
 }}"""
 
@@ -896,21 +1186,29 @@ def _research_audience_platform(state: dict, brief: dict) -> dict:
         f"Engagement data from past posts:\n{post_ctx}"
         f"{xpoz_ctx}",
         f"You are an audience & platform intelligence analyst "
-        f"for {platform}. Cover ALL of the following:\n"
+        f"for {platform}. Research ALL of the following:\n"
         f"1. Audience segments — who engages most and why\n"
         f"2. Platform algorithm — what signals {platform} "
         f"currently rewards (saves, shares, dwell time, etc.)\n"
         f"3. Optimal formats — image vs carousel vs video, "
         f"caption length, CTA placement\n"
         f"4. Timing — best posting windows for the audience\n\n"
-        f"Output JSON with keys: audience_insights, "
-        f"algorithm_signals, optimal_formats, timing, rationale.",
+        f"Output JSON with EXACTLY these keys:\n"
+        f'{{"summary": "2-3 sentence overview of your findings",'
+        f' "key_findings": [{{"evidence_id": "aud:1", "claim": "finding text", '
+        f'"source_type": "audience insight|algorithm signal|format spec|timing window", '
+        f'"source_ref": "URL or source name", "snippet": "supporting detail", '
+        f'"confidence": 0.8}}, ...],'
+        f' "recommended_hooks": ["hook pattern 1", "hook pattern 2"],'
+        f' "risks": ["risk or gap 1"],'
+        f' "rationale": "why these findings matter for the content brief"}}',
         run_meta=meta,
     )
     result = _parse_json(raw, {
-        "audience_insights": [],
-        "algorithm_signals": [],
-        "optimal_formats": [],
+        "summary": "Audience & platform research completed.",
+        "key_findings": [],
+        "recommended_hooks": [],
+        "risks": [],
         "rationale": "Audience & platform analysis",
     })
     result["_research_source"] = meta.get("research_source", "unknown")
@@ -944,7 +1242,7 @@ def _research_trends_listening(state: dict, brief: dict) -> dict:
         f"Focus: {brief.get('focus', '')}"
         f"{xpoz_ctx}",
         f"You are a trends & social listening analyst "
-        f"for {platform}. Cover ALL of the following:\n"
+        f"for {platform}. Research ALL of the following:\n"
         f"1. Trending topics & hashtags in this niche right "
         f"now — not just viral, but actively engaging\n"
         f"2. Hook & format benchmarking — opening lines, "
@@ -955,15 +1253,22 @@ def _research_trends_listening(state: dict, brief: dict) -> dict:
         f"that lower friction to interact\n"
         f"4. Conversations — what people are actively "
         f"discussing and debating in this topic area\n\n"
-        f"Output JSON with keys: trending_topics, "
-        f"hook_patterns, engagement_triggers, conversations, "
-        f"rationale.",
+        f"Output JSON with EXACTLY these keys:\n"
+        f'{{"summary": "2-3 sentence overview of current trends",'
+        f' "key_findings": [{{"evidence_id": "trend:1", "claim": "finding text", '
+        f'"source_type": "trending topic|hook pattern|engagement trigger|conversation theme", '
+        f'"source_ref": "URL or source name", "snippet": "supporting detail", '
+        f'"confidence": 0.8}}, ...],'
+        f' "recommended_hooks": ["specific hook pattern or opening line to use"],'
+        f' "risks": ["trend risk or potential backlash"],'
+        f' "rationale": "why these trends matter for this content brief"}}',
         run_meta=meta,
     )
     result = _parse_json(raw, {
-        "trending_topics": [],
-        "hook_patterns": [],
-        "engagement_triggers": [],
+        "summary": "Trends & social listening research completed.",
+        "key_findings": [],
+        "recommended_hooks": [],
+        "risks": [],
         "rationale": "Trends & social listening",
     })
     result["_research_source"] = meta.get("research_source", "unknown")
@@ -1004,7 +1309,7 @@ def _research_competitor_industry(
         f"Known competitor/peer posts:\n{post_ctx}"
         f"{xpoz_ctx}",
         "You are a competitive intelligence and industry "
-        "analyst. Cover ALL of the following:\n"
+        "analyst. Research ALL of the following:\n"
         "1. Competitor analysis — what peers and thought "
         "leaders are posting, what gets engagement, what "
         "falls flat, and gaps/angles they haven't covered\n"
@@ -1013,16 +1318,22 @@ def _research_competitor_industry(
         "3. Data & credibility — supporting statistics, "
         "studies, benchmarks, or case studies that make "
         "claims feel grounded rather than generic\n\n"
-        "Output JSON with keys: competitor_insights, "
-        "industry_news, supporting_data, gaps_to_exploit, "
-        "rationale.",
+        "Output JSON with EXACTLY these keys:\n"
+        '{"summary": "2-3 sentence overview of competitive landscape",'
+        ' "key_findings": [{"evidence_id": "comp:1", "claim": "finding text", '
+        '"source_type": "competitor insight|industry news|statistic|gap/angle", '
+        '"source_ref": "URL or source name", "snippet": "supporting detail", '
+        '"confidence": 0.8}, ...],'
+        ' "recommended_hooks": ["angle or hook inspired by competitor gaps"],'
+        ' "risks": ["competitive risk or market concern"],'
+        ' "rationale": "why these competitive insights matter for the content brief"}',
         run_meta=meta,
     )
     result = _parse_json(raw, {
-        "competitor_insights": [],
-        "industry_news": [],
-        "supporting_data": [],
-        "gaps_to_exploit": [],
+        "summary": "Competitor & industry research completed.",
+        "key_findings": [],
+        "recommended_hooks": [],
+        "risks": [],
         "rationale": "Competitor & industry analysis",
     })
     result["_research_source"] = meta.get("research_source", "unknown")
@@ -1059,7 +1370,7 @@ def _research_brand_knowledge(state: dict, brief: dict) -> dict:
     meta["agent"] = "research_brand_knowledge"
     meta["research_source"] = "rag+claude_call"
     raw, _ = _claude_call(
-        "Compile brand & internal knowledge. Cover ALL of "
+        "Compile brand & internal knowledge. Research ALL of "
         "the following:\n"
         "1. Voice guidelines — tone, style, words to use "
         "and avoid from brand voice docs\n"
@@ -1069,9 +1380,15 @@ def _research_brand_knowledge(state: dict, brief: dict) -> dict:
         "narratives, or personal experiences from past posts\n"
         "4. Customer proof — customer success stories, "
         "testimonials, and case studies\n\n"
-        "Output JSON with keys: voice_guidelines, "
-        "rules_to_enforce, personal_stories, customer_proof, "
-        "rationale.",
+        "Output JSON with EXACTLY these keys:\n"
+        '{"summary": "2-3 sentence overview of brand knowledge relevant to this content",'
+        ' "key_findings": [{"evidence_id": "brand:1", "claim": "finding text", '
+        '"source_type": "voice guideline|rule|story seed|customer proof", '
+        '"source_ref": "internal docs", "snippet": "supporting detail", '
+        '"confidence": 0.8}, ...],'
+        ' "recommended_hooks": ["hook or angle rooted in brand story/proof points"],'
+        ' "risks": ["brand consistency risk or guideline concern"],'
+        ' "rationale": "why this brand knowledge is relevant to the content brief"}',
         f"Internal knowledge:\n{internal}\n\n"
         f"Past posts:\n{post_ctx}\n\n"
         f"Writing persona examples:\n{persona_examples}\n\n"
@@ -1080,10 +1397,10 @@ def _research_brand_knowledge(state: dict, brief: dict) -> dict:
         run_meta=meta,
     )
     result = _parse_json(raw, {
-        "voice_guidelines": "",
-        "rules_to_enforce": [],
-        "personal_stories": [],
-        "customer_proof": [],
+        "summary": "Brand & internal knowledge compiled.",
+        "key_findings": [],
+        "recommended_hooks": [],
+        "risks": [],
         "rationale": "Brand & internal knowledge",
     })
     result["_research_source"] = meta.get("research_source", "unknown")
@@ -1198,27 +1515,49 @@ def synthesizer_agent(state: PipelineState) -> dict:
     start = time.time()
     platform = state["platform"]
 
+    from app.services.llm import PLATFORM_STYLE_GUIDE
+
+    # ── Format research briefs fully (no aggressive truncation) ──────────
     briefs_text = ""
     for brief in state.get("research_briefs", []):
         activity = brief.get("activity", "unknown")
-        summary = str(brief.get("summary", ""))[:500]
+        summary = str(brief.get("summary", ""))[:1500]
+        rationale = str(brief.get("rationale", ""))
         findings = brief.get("key_findings", []) if isinstance(
             brief.get("key_findings"), list
         ) else []
         links = []
-        for f in findings[:4]:
+        for f in findings[:8]:
             if isinstance(f, dict):
-                links.append(f"- [{f.get('evidence_id', '?')}] {f.get('claim', '')}")
+                claim = f.get("claim", "")
+                snippet = f.get("snippet", "")
+                src = f.get("source_ref", "")
+                conf = f.get("confidence", 0.6)
+                entry = f"- [{f.get('evidence_id', '?')}] {claim}"
+                if snippet and snippet != claim:
+                    entry += f"\n  Snippet: {snippet[:300]}"
+                if src:
+                    entry += f"\n  Source: {src}"
+                entry += f" (confidence: {conf})"
+                links.append(entry)
         link_block = "\n".join(links)
+        hooks = brief.get("recommended_hooks", [])
+        hooks_line = f"\nRecommended Hooks: {', '.join(str(h) for h in hooks)}" if hooks else ""
+        risks = brief.get("risks", [])
+        risks_line = f"\nRisks: {', '.join(str(r) for r in risks)}" if risks else ""
         briefs_text += (
-            f"\n### {activity}\nSummary: {summary}\n"
-            f"Evidence:\n{link_block or '- (none)'}\n"
+            f"\n### {activity}\n{summary}\n"
+            f"Evidence:\n{link_block or '- (none)'}"
+            f"{hooks_line}{risks_line}\n"
         )
 
+    # ── Format all context using structured helpers (no raw JSON) ────────
     voice_desc = _format_voice_profile(state.get("voice_profile") or {}, platform)
-    persona_desc = json.dumps(state.get("persona_profile") or {}, indent=2)[:800]
-    audience_desc = json.dumps(state.get("audience_profiles") or [], indent=2)[:800]
-    rules_desc = json.dumps(state.get("rule_set") or {}, indent=2)[:500]
+    persona_desc = _format_persona_profile(state.get("persona_profile") or {})
+    audience_desc = _format_audience_profiles(state.get("audience_profiles") or [])
+    rules_desc = _format_rule_set(state.get("rule_set") or {})
+
+    platform_style = PLATFORM_STYLE_GUIDE.get(platform, PLATFORM_STYLE_GUIDE.get("linkedin", ""))
 
     retry_block = ""
     if state.get("retry_feedback"):
@@ -1252,10 +1591,12 @@ def synthesizer_agent(state: PipelineState) -> dict:
             f"images are attached. Adapt content to complement them."
         )
 
-    system = f"""You are a content adaptation specialist for {platform}.
+    # Prompt order: platform context → voice → persona → audience → rules →
+    #               research → preferences → retry → instructions
+    system = f"""You are a content adaptation specialist for {platform.upper()}.
 
-## Research Findings
-{briefs_text}
+## Platform: {platform.upper()}
+{platform_style}
 
 ## Brand Voice
 {voice_desc}
@@ -1266,31 +1607,50 @@ def synthesizer_agent(state: PipelineState) -> dict:
 ## Target Audiences
 {audience_desc}
 
-## Rules
+## Rules & Constraints
 {rules_desc}
+
+## Research Findings
+{briefs_text}
 {retry_block}{pref_block}{image_block}
 
+## Your Task
 Generate exactly 3 variants (A, B, C) adapted for {platform}.
 Each variant MUST use a different hook strategy.
+
+CRITICAL INSTRUCTIONS — follow ALL of these:
+1. WRITE IN THE BRAND VOICE. Match the tone descriptors, vocabulary patterns,
+   and structure patterns from the Brand Voice section above. If vocabulary
+   patterns are listed, USE THEM. If structure patterns are listed, FOLLOW THEM.
+2. WRITE AS THE PERSONA. Adopt the writing approach, tone, and structure
+   preference defined in the Writing Persona section.
+3. WRITE FOR THE AUDIENCES. Tailor language complexity, references, and
+   pain-point framing to the Target Audiences listed above.
+4. OBEY ALL RULES. Every rule marked [REQUIRED] must be satisfied. Rules
+   marked [SUGGESTED] should be followed unless they conflict with voice/persona.
+5. USE THE RESEARCH. Reference specific findings, data points, and trends from
+   the Research Findings section. Cite evidence_ids in your rationale.
+6. ADAPT FOR {platform.upper()}. Follow the Platform style guide above for
+   format, length, hashtag usage, and structure conventions.
+
 For each variant, provide a DETAILED rationale that:
-- References specific research findings that informed the approach
+- References specific evidence_ids from Research Findings that informed the approach
 - Explains why this hook type works for the target audience on {platform}
-- Notes how it aligns with the brand voice attributes and tone
-- Explains how vocabulary patterns and structure patterns were incorporated
-- Mentions any platform-specific voice adaptations applied
+- Notes how brand voice attributes, vocabulary patterns, and structure patterns were incorporated
+- Describes persona alignment — how the writing approach and tone match
+- Lists which rules were applied and how
+- Mentions any platform-specific adaptations applied
 
 Also include:
 - image_prompt: a prompt for generating a platform-native image.
   {"IMPORTANT: base this on the source reference images described above — adapt them for " + platform + ", keeping the core subject and feel." if has_source_images else ""}
-- video_prompt: a prompt for generating a short video clip (8-10s)
-  Only include video_prompt for platforms that support video (tiktok, instagram).
 - rationale_struct object with:
-  - strategy
-  - audience_fit
-  - voice_alignment
-  - rules_alignment
-  - evidence_links (list of evidence_id values from Research Findings)
-  - open_questions (list)
+  - strategy: the hook strategy used and why
+  - audience_fit: how content matches audience needs and pain points
+  - voice_alignment: specific voice attributes, vocabulary, and structure patterns applied
+  - rules_alignment: which rules were satisfied and how
+  - evidence_links: list of evidence_id values from Research Findings used
+  - open_questions: remaining uncertainties or trade-offs
 
 Respond in JSON array format ONLY:
 [
@@ -1300,8 +1660,8 @@ Respond in JSON array format ONLY:
     "rationale": "...",
     "hook_type": "question|statistic|story|contrarian|list",
     "consistency_score": 85,
-    "image_prompt": "A professional, clean image depicting...",
-    "video_prompt": "A short cinematic clip showing..."
+    "rationale_struct": {{...}},
+    "image_prompt": "A professional, clean image depicting..."
   }},
   ...
 ]"""
@@ -1336,7 +1696,6 @@ Respond in JSON array format ONLY:
                 "hook_type": v.get("hook_type", "question"),
                 "consistency_score": v.get("consistency_score", 70),
                 "image_prompt": v.get("image_prompt", ""),
-                "video_prompt": v.get("video_prompt", ""),
                 "rationale_struct": {
                     "strategy": "General strategy from synthesized context",
                     "audience_fit": "Aligned to selected audience",
@@ -1365,60 +1724,78 @@ Respond in JSON array format ONLY:
 
     research_briefs_raw = state.get("research_briefs") or []
 
+    # ── Media Voting: decide whether to generate images ────────────────
+    # If source has images → always generate images for all platforms.
+    has_source_images = bool(source_imgs)
+    generate_images = has_source_images
+
+    if not generate_images:
+        for brief in research_briefs_raw:
+            for finding in brief.get("key_findings", []):
+                claim_lower = str(finding.get("claim", "")).lower()
+                stype_lower = str(finding.get("source_type", "")).lower()
+                if any(kw in claim_lower or kw in stype_lower for kw in
+                       ("image", "visual", "carousel", "graphic", "infographic", "photo")):
+                    generate_images = True
+                    break
+            for hook in brief.get("recommended_hooks", []):
+                if any(kw in str(hook).lower() for kw in ("image", "visual", "carousel")):
+                    generate_images = True
+                    break
+            if generate_images:
+                break
+
+    if not generate_images:
+        generate_images = True
+
+    log.info(
+        "[%s] Media voting: images=%s (source_images=%d)",
+        platform, generate_images, len(source_imgs),
+    )
+
     variants = []
     for v in validated_variants:
-        log.info(
-            "[%s] Crafting image prompt for variant %s …",
-            platform, v.get("label"),
-        )
-        llm_prompt = build_image_prompt_via_llm(
-            variant_text=v.get("text", ""),
-            platform=platform,
-            voice_profile=state.get("voice_profile"),
-            persona_profile=state.get("persona_profile"),
-            audience_profiles=state.get("audience_profiles"),
-            research_briefs=research_briefs_raw,
-            rule_set=state.get("rule_set"),
-            source_image_analysis=state.get(
-                "source_image_analysis", "",
-            ),
-            run_meta=gen_meta,
-        )
-        log.info(
-            "[%s] Image prompt ready (%d chars), generating image …",
-            platform, len(llm_prompt),
-        )
-
         image_url = None
-        try:
-            image_url = generate_image(
-                llm_prompt,
-                platform,
-                reference_images=source_imgs,
+        llm_prompt = ""
+
+        if generate_images:
+            log.info(
+                "[%s] Crafting image prompt for variant %s …",
+                platform, v.get("label"),
+            )
+            llm_prompt = build_image_prompt_via_llm(
+                variant_text=v.get("text", ""),
+                platform=platform,
+                voice_profile=state.get("voice_profile"),
+                persona_profile=state.get("persona_profile"),
+                audience_profiles=state.get("audience_profiles"),
+                research_briefs=research_briefs_raw,
+                rule_set=state.get("rule_set"),
+                source_image_analysis=state.get(
+                    "source_image_analysis", "",
+                ),
                 run_meta=gen_meta,
             )
             log.info(
-                "[%s] Image result for %s: %s",
-                platform, v.get("label"),
-                image_url or "None (generation returned empty)",
+                "[%s] Image prompt ready (%d chars), generating image …",
+                platform, len(llm_prompt),
             )
-        except Exception:
-            log.exception(
-                "[%s] Image gen FAILED for variant %s",
-                platform, v.get("label"),
-            )
-
-        video_result = None
-        vp = v.get("video_prompt")
-        if vp and platform in ("tiktok", "instagram"):
             try:
-                from app.services.video_gen import generate_video
-                video_result = generate_video(
-                    vp, platform, run_meta=gen_meta,
+                image_url = generate_image(
+                    llm_prompt,
+                    platform,
+                    reference_images=source_imgs,
+                    run_meta=gen_meta,
+                )
+                log.info(
+                    "[%s] Image result for %s: %s",
+                    platform, v.get("label"),
+                    image_url or "None (generation returned empty)",
                 )
             except Exception:
-                log.warning(
-                    "Video gen skipped for %s", v.get("label"),
+                log.exception(
+                    "[%s] Image gen FAILED for variant %s",
+                    platform, v.get("label"),
                 )
 
         variants.append({
@@ -1432,14 +1809,6 @@ Respond in JSON array format ONLY:
             "consistency_score": v.get("consistency_score", 75),
             "image_prompt": llm_prompt,
             "image_url": image_url,
-            "video_prompt": v.get("video_prompt", ""),
-            "video_url": (
-                video_result.get("url") if video_result else None
-            ),
-            "video_duration": (
-                video_result.get("duration")
-                if video_result else None
-            ),
         })
 
     latency = int((time.time() - start) * 1000)

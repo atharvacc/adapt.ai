@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { Route, Routes, useParams, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import {
@@ -87,8 +87,8 @@ import { PlatformIcon, PLATFORM_LABELS } from '../components/PlatformIcon'
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
-const PLATFORM_ABBR: Record<Platform, string> = { linkedin: 'LI', x: 'X', instagram: 'IG', tiktok: 'TT' }
-const ALL_PLATFORMS: Platform[] = ['linkedin', 'x', 'instagram', 'tiktok']
+const PLATFORM_ABBR: Record<Platform, string> = { linkedin: 'LI', x: 'X', instagram: 'IG', facebook: 'FB' }
+const ALL_PLATFORMS: Platform[] = ['linkedin', 'x', 'instagram', 'facebook']
 
 const COMPOSITION_COLORS: Record<string, { dot: string; border: string }> = {
   voice: { dot: 'bg-indigo-400', border: 'border-l-indigo-400' },
@@ -424,7 +424,16 @@ function WorkflowDefaultsPanel({ definition, defId }: { definition: WorkflowDefi
   const initPpc = (definition.per_platform_config ?? {}) as Record<string, PlatformNodeConfig>
   const [platformConfigs, setPlatformConfigs] = useState<Record<string, PlatformNodeConfig>>(initPpc)
 
-  const platforms = (definition.platforms ?? []) as Platform[]
+  const [selectedPlatforms, setSelectedPlatforms] = useState<Set<Platform>>(new Set((definition.platforms ?? []) as Platform[]))
+  const platforms = [...selectedPlatforms] as Platform[]
+
+  const togglePlatform = (p: Platform) => {
+    setSelectedPlatforms((prev) => {
+      const n = new Set(prev)
+      if (n.has(p)) n.delete(p); else n.add(p)
+      return n
+    })
+  }
 
   const defaultsCfg: PlatformNodeConfig = {
     voice_id: voiceId || undefined,
@@ -437,12 +446,14 @@ function WorkflowDefaultsPanel({ definition, defId }: { definition: WorkflowDefi
     agentId !== (definition.default_agent_id || '') ||
     JSON.stringify(audienceIds) !== JSON.stringify(definition.default_audience_ids || []) ||
     ruleSetId !== (definition.default_rule_set_id || '') ||
-    JSON.stringify(platformConfigs) !== JSON.stringify(initPpc)
+    JSON.stringify(platformConfigs) !== JSON.stringify(initPpc) ||
+    JSON.stringify([...selectedPlatforms].sort()) !== JSON.stringify([...(definition.platforms ?? [])].sort())
 
   const handleSave = async () => {
     setSaving(true)
     try {
       await updateWorkflowDefinition(defId, {
+        platforms: [...selectedPlatforms],
         default_voice_id: voiceId || null,
         default_agent_id: agentId || null,
         default_audience_ids: audienceIds,
@@ -493,6 +504,18 @@ function WorkflowDefaultsPanel({ definition, defId }: { definition: WorkflowDefi
             </button>
           </div>
         </div>
+        <div className="mb-4">
+          <label className="mb-1.5 block text-[11px] font-medium text-gray-500">Target Platforms</label>
+          <div className="flex flex-wrap gap-2">
+            {ALL_PLATFORMS.map((p) => (
+              <button key={p} onClick={() => togglePlatform(p)}
+                className={`flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors ${selectedPlatforms.has(p) ? 'border-indigo-300 bg-indigo-50 text-indigo-700' : 'border-gray-200 text-gray-400 hover:border-gray-300'}`}>
+                <PlatformIcon platform={p} size={14} className="inline-block" /> {PLATFORM_ABBR[p]}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <p className="mb-4 text-[11px] text-gray-400">These defaults apply to all platforms unless overridden below.</p>
 
         <div className="grid grid-cols-2 gap-4">
@@ -864,10 +887,11 @@ function RunEditorView() {
             {/* Per-platform lanes */}
             {platforms.map((p, i) => {
               const node = getNode(p)
+              const nodeExists = !!node
               const nodeStatus = node?.status ?? 'pending'
               const hasVariants = (node?.variants?.length ?? 0) > 0
               return (
-                <div key={p} className="flex items-center">
+                <div key={p} className={`flex items-center ${!nodeExists ? 'opacity-50' : ''}`}>
                   {/* Source — spans all lanes */}
                   {i === 0 ? (
                     <div className="w-[150px] shrink-0 flex items-center justify-center" style={platforms.length > 1 ? { height: `${platforms.length * 80}px` } : undefined}>
@@ -881,6 +905,14 @@ function RunEditorView() {
                   <DAGArrow />
                   <div className="w-[150px] shrink-0">
                     {(() => {
+                      if (!nodeExists) {
+                        return (
+                          <DAGNode kind="adapt" status="pending" platform={p}
+                            label={PLATFORM_LABELS[p]} sub="Not in this run"
+                            isOpen={openPanel?.kind === 'adapt' && openPanel.platform === p}
+                            onDoubleClick={() => handleDoubleClick('adapt', p)} />
+                        )
+                      }
                       const progress = nodeStatus === 'running' ? getNodeProgress(p) : null
                       const adaptSub = progress ? progress.step : `${node?.variants?.length ?? 0} variants`
                       return (
@@ -896,7 +928,7 @@ function RunEditorView() {
                   <DAGArrow />
                   <div className="w-[120px] shrink-0">
                     <DAGNode kind="edit" status={hasVariants ? (node?.variants?.some((v) => v.status === 'edited') ? 'done' : 'pending') : 'pending'}
-                      label="Edit" sub="Refine variants"
+                      label="Edit" sub={nodeExists ? 'Refine variants' : 'Not in this run'}
                       isOpen={openPanel?.kind === 'edit' && openPanel.platform === p}
                       onDoubleClick={() => handleDoubleClick('edit', p)} />
                   </div>
@@ -904,7 +936,7 @@ function RunEditorView() {
                   <DAGArrow />
                   <div className="w-[120px] shrink-0">
                     <DAGNode kind="review" status={node?.variants?.some((v) => v.status === 'accepted') ? 'done' : hasVariants ? 'pending' : 'pending'}
-                      label="Review" sub="Accept / Reject"
+                      label="Review" sub={nodeExists ? 'Accept / Reject' : 'Not in this run'}
                       isOpen={openPanel?.kind === 'review' && openPanel.platform === p}
                       onDoubleClick={() => handleDoubleClick('review', p)} />
                   </div>
@@ -983,7 +1015,7 @@ function NodeDetailModal({ openPanel, onClose, run, defId, runId, activeNode, up
   const isReview = openPanel.kind === 'review' && !!openPanel.platform
 
   type AdaptTab = 'config' | 'variants'
-  const [adaptTab, setAdaptTab] = useState<AdaptTab>('config')
+  const [adaptTab, setAdaptTab] = useState<AdaptTab>('variants')
 
   const platformLabel = openPanel.platform ? PLATFORM_LABELS[openPanel.platform] : ''
   const kindLabel = NODE_META[openPanel.kind].label
@@ -1053,6 +1085,17 @@ function NodeDetailModal({ openPanel, onClose, run, defId, runId, activeNode, up
                 onUpdate={(comp, ctx) => updateNodeMut.mutate({ node: activeNode, comp, ctx })}
                 isUpdating={updateNodeMut.isPending}
               />
+            </div>
+          )}
+
+          {/* Adapt: no node for this platform in the current run */}
+          {isAdapt && !activeNode && (
+            <div className="flex flex-col items-center justify-center py-16 gap-3">
+              <AlertTriangle size={24} className="text-amber-400" />
+              <span className="text-sm font-medium text-gray-700">No node for {platformLabel} in this run</span>
+              <span className="text-xs text-gray-400 max-w-xs text-center">
+                This platform was added after the run was created. Create a new run to include {platformLabel}.
+              </span>
             </div>
           )}
 
@@ -1908,28 +1951,16 @@ function VariantCard({ variant, runId, nodeId, onFeedback, validationResults = [
         <span className={`ml-auto rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${scoreColor}`}>{score}%</span>
       </div>
 
-      {(variant.image_url || variant.video_url) && (
-        <div className="mb-3 space-y-2">
-          {variant.image_url && (
-            <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm">
-              <img src={variant.image_url} alt="Generated" className="h-48 w-full object-cover" />
-              <div className="flex items-center justify-between px-2.5 py-1.5 bg-gray-50 border-t border-gray-100">
-                <span className="text-[10px] font-medium text-gray-500">AI-Generated Image</span>
-                <a href={variant.image_url} target="_blank" rel="noopener noreferrer"
-                   className="text-[10px] text-blue-500 hover:text-blue-700 hover:underline">View full</a>
-              </div>
+      {variant.image_url && (
+        <div className="mb-3">
+          <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm">
+            <img src={variant.image_url} alt="Generated" className="h-48 w-full object-cover" />
+            <div className="flex items-center justify-between px-2.5 py-1.5 bg-gray-50 border-t border-gray-100">
+              <span className="text-[10px] font-medium text-gray-500">AI-Generated Image</span>
+              <a href={variant.image_url} target="_blank" rel="noopener noreferrer"
+                 className="text-[10px] text-blue-500 hover:text-blue-700 hover:underline">View full</a>
             </div>
-          )}
-          {variant.video_url && (
-            <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm">
-              <video src={variant.video_url} controls className="h-48 w-full object-cover" />
-              <div className="px-2.5 py-1.5 bg-gray-50 border-t border-gray-100">
-                <span className="text-[10px] font-medium text-gray-500">
-                  AI Video{variant.video_duration ? ` (${variant.video_duration}s)` : ''}
-                </span>
-              </div>
-            </div>
-          )}
+          </div>
         </div>
       )}
 
@@ -2195,14 +2226,10 @@ function ResearchContext({ composition }: { composition: Record<string, unknown>
   const [expandedBrief, setExpandedBrief] = useState<string | null>(null)
   const briefs = (composition.research_briefs ?? []) as Array<Record<string, unknown>>
   const plan = (composition.research_plan ?? {}) as Record<string, Record<string, string>>
-  const activities = (composition.research_activities ?? []) as string[]
 
-  if (briefs.length === 0 && activities.length === 0) return null
+  if (briefs.length === 0) return null
 
-  const formatBriefContent = (brief: Record<string, unknown>) => {
-    const excluded = new Set(['activity', 'rationale', 'error'])
-    return Object.entries(brief).filter(([k]) => !excluded.has(k))
-  }
+  type Finding = { evidence_id?: string; claim?: string; source_type?: string; source_ref?: string; snippet?: string; confidence?: number }
 
   return (
     <div className="mb-5 rounded-xl border border-gray-200 bg-white">
@@ -2220,9 +2247,13 @@ function ResearchContext({ composition }: { composition: Record<string, unknown>
           const Icon = meta.icon
           const label = ACTIVITY_LABELS[activity] ?? activity.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
           const planEntry = plan[activity]
+          const summary = brief.summary as string | undefined
           const rationale = brief.rationale as string | undefined
+          const findings = (brief.key_findings ?? []) as Finding[]
+          const hooks = (brief.recommended_hooks ?? []) as string[]
+          const risks = (brief.risks ?? []) as string[]
           const hasError = !!brief.error
-          const contentEntries = formatBriefContent(brief)
+          const findingsCount = findings.length
 
           return (
             <div key={idx}>
@@ -2233,17 +2264,24 @@ function ResearchContext({ composition }: { composition: Record<string, unknown>
                 </span>
                 <div className="min-w-0 flex-1">
                   <span className="block text-[11px] font-semibold text-gray-800">{label}</span>
-                  {planEntry?.focus && (
+                  {summary ? (
+                    <span className="block truncate text-[10px] text-gray-500">{summary.slice(0, 120)}</span>
+                  ) : planEntry?.focus ? (
                     <span className="block truncate text-[10px] text-gray-400">{planEntry.focus}</span>
-                  )}
+                  ) : null}
                 </div>
-                {hasError && <AlertTriangle size={12} className="shrink-0 text-red-400" />}
-                {!hasError && rationale && <CheckCircle2 size={12} className="shrink-0 text-green-400" />}
-                {isExpanded ? <ChevronDown size={14} className="shrink-0 text-gray-400" /> : <ChevronRight size={14} className="shrink-0 text-gray-400" />}
+                <div className="flex items-center gap-1.5 shrink-0">
+                  {findingsCount > 0 && (
+                    <span className="rounded-full bg-gray-100 px-1.5 py-0.5 text-[9px] font-medium text-gray-500">{findingsCount}</span>
+                  )}
+                  {hasError && <AlertTriangle size={12} className="text-red-400" />}
+                  {!hasError && findingsCount > 0 && <CheckCircle2 size={12} className="text-green-400" />}
+                  {isExpanded ? <ChevronDown size={14} className="text-gray-400" /> : <ChevronRight size={14} className="text-gray-400" />}
+                </div>
               </button>
 
               {isExpanded && (
-                <div className="border-t border-gray-100 bg-gray-50/50 px-4 py-3 space-y-2.5">
+                <div className="border-t border-gray-100 bg-gray-50/50 px-4 py-3 space-y-3">
                   {planEntry?.query && (
                     <div>
                       <span className="mb-0.5 block text-[9px] font-bold tracking-wider text-gray-400 uppercase">Search Query</span>
@@ -2251,33 +2289,78 @@ function ResearchContext({ composition }: { composition: Record<string, unknown>
                     </div>
                   )}
 
-                  {rationale && (
+                  {summary && (
                     <div>
-                      <span className="mb-0.5 block text-[9px] font-bold tracking-wider text-gray-400 uppercase">Agent Summary</span>
-                      <p className="text-[11px] leading-relaxed text-gray-600">{String(rationale)}</p>
+                      <span className="mb-0.5 block text-[9px] font-bold tracking-wider text-gray-400 uppercase">Summary</span>
+                      <p className="text-[11px] leading-relaxed text-gray-700">{summary}</p>
                     </div>
                   )}
 
-                  {contentEntries.length > 0 && (
+                  {findings.length > 0 && (
                     <div>
-                      <span className="mb-1 block text-[9px] font-bold tracking-wider text-gray-400 uppercase">Findings</span>
+                      <span className="mb-1 block text-[9px] font-bold tracking-wider text-gray-400 uppercase">Key Findings ({findings.length})</span>
                       <div className="space-y-1.5">
-                        {contentEntries.map(([key, value]) => {
-                          const displayKey = key.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
-                          const displayValue = typeof value === 'string' ? value
-                            : Array.isArray(value)
-                              ? (value.length > 0 ? value.map((v) => typeof v === 'string' ? v : JSON.stringify(v)).join(', ') : '(none)')
-                              : JSON.stringify(value, null, 2)
-                          return (
-                            <div key={key} className="rounded-lg border border-gray-200 bg-white px-3 py-2">
-                              <span className="mb-0.5 block text-[10px] font-semibold text-gray-500">{displayKey}</span>
-                              <p className="text-[11px] leading-relaxed text-gray-700 whitespace-pre-wrap">
-                                {String(displayValue).slice(0, 500)}{String(displayValue).length > 500 ? '...' : ''}
-                              </p>
+                        {findings.map((f, fi) => (
+                          <div key={fi} className="rounded-lg border border-gray-200 bg-white px-3 py-2">
+                            <div className="flex items-start gap-2">
+                              <span className="mt-0.5 shrink-0 rounded bg-indigo-50 px-1 py-0.5 text-[8px] font-mono font-semibold text-indigo-600">
+                                {f.evidence_id ?? `${activity}:${fi + 1}`}
+                              </span>
+                              <div className="min-w-0 flex-1">
+                                <p className="text-[11px] leading-relaxed text-gray-800">{f.claim}</p>
+                                {f.snippet && f.snippet !== f.claim && (
+                                  <p className="mt-0.5 text-[10px] leading-relaxed text-gray-500 italic">{f.snippet}</p>
+                                )}
+                                <div className="mt-1 flex items-center gap-2 flex-wrap">
+                                  {f.source_type && (
+                                    <span className="rounded bg-gray-100 px-1.5 py-0.5 text-[8px] font-medium text-gray-500">{f.source_type}</span>
+                                  )}
+                                  {f.source_ref && (
+                                    <span className="text-[9px] text-blue-500 truncate max-w-[200px]">{f.source_ref}</span>
+                                  )}
+                                  {f.confidence != null && (
+                                    <span className={`text-[8px] font-medium ${f.confidence >= 0.7 ? 'text-green-600' : f.confidence >= 0.5 ? 'text-amber-600' : 'text-red-500'}`}>
+                                      {Math.round(f.confidence * 100)}% conf
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
                             </div>
-                          )
-                        })}
+                          </div>
+                        ))}
                       </div>
+                    </div>
+                  )}
+
+                  {hooks.length > 0 && (
+                    <div>
+                      <span className="mb-1 block text-[9px] font-bold tracking-wider text-gray-400 uppercase">Recommended Hooks</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {hooks.map((h, hi) => (
+                          <span key={hi} className="rounded-full border border-amber-200 bg-amber-50 px-2 py-1 text-[10px] text-amber-800">{h}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {risks.length > 0 && (
+                    <div>
+                      <span className="mb-1 block text-[9px] font-bold tracking-wider text-gray-400 uppercase">Risks &amp; Gaps</span>
+                      <div className="space-y-1">
+                        {risks.map((r, ri) => (
+                          <div key={ri} className="flex items-start gap-1.5">
+                            <AlertTriangle size={10} className="mt-0.5 shrink-0 text-orange-400" />
+                            <span className="text-[10px] text-gray-600">{r}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {rationale && (
+                    <div>
+                      <span className="mb-0.5 block text-[9px] font-bold tracking-wider text-gray-400 uppercase">Agent Rationale</span>
+                      <p className="text-[11px] leading-relaxed text-gray-500 italic">{rationale}</p>
                     </div>
                   )}
 
@@ -2347,20 +2430,20 @@ function VariantsReadOnlyPanel({ node }: { node: WorkflowNode }) {
   return (
     <div>
       <div className="mb-4">
-        <h3 className="text-sm font-semibold text-gray-900">Generated Variants</h3>
-        <p className="mt-0.5 text-xs text-gray-500">Adapted content with validation results</p>
+        <h3 className="text-sm font-semibold text-gray-900">A/B Variants</h3>
+        <p className="mt-0.5 text-xs text-gray-500">Adapted content with rationale and research</p>
       </div>
-
-      <ResearchContext composition={node.composition ?? {}} />
 
       <VariantTabBar variants={variants} activeIdx={activeIdx} onSelect={setActiveIdx} />
 
       {active && (
-        <div className="space-y-3">
-          {/* Media */}
-          {(active.image_url || active.video_url) && (
-            <div className="space-y-2">
-              {active.image_url && (
+        <div className="space-y-4">
+          {/* 1. Output */}
+          <div>
+            <p className="mb-1.5 text-[10px] font-semibold text-gray-500 uppercase tracking-wide">Output</p>
+
+            {active.image_url && (
+              <div className="mb-3">
                 <div className="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
                   <img src={active.image_url} alt="Generated" className="w-full max-h-72 object-cover" />
                   <div className="flex items-center justify-between px-3 py-2 bg-gray-50 border-t border-gray-100">
@@ -2369,32 +2452,27 @@ function VariantsReadOnlyPanel({ node }: { node: WorkflowNode }) {
                        className="text-[10px] text-blue-500 hover:text-blue-700 hover:underline">View full size</a>
                   </div>
                 </div>
-              )}
-              {active.video_url && (
-                <div className="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
-                  <video src={active.video_url} controls className="w-full max-h-72 object-cover" />
-                  <div className="px-3 py-2 bg-gray-50 border-t border-gray-100">
-                    <span className="text-[10px] font-medium text-gray-500">
-                      AI Video{active.video_duration ? ` (${active.video_duration}s)` : ''}
-                    </span>
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
+              </div>
+            )}
 
-          {/* Variant content */}
-          <div className="rounded-lg border border-gray-200 bg-white p-4">
-            <p className="whitespace-pre-wrap text-sm leading-relaxed text-gray-800">{active.text}</p>
+            <div className="rounded-lg border border-gray-200 bg-white p-4">
+              <p className="whitespace-pre-wrap text-sm leading-relaxed text-gray-800">{active.text}</p>
+            </div>
           </div>
 
-          {/* Structured Rationale */}
-          <StructuredRationale
-            variant={active}
-            briefs={(node.composition?.research_briefs ?? []) as Array<Record<string, unknown>>}
-          />
+          {/* 2. Rationale */}
+          <div>
+            <p className="mb-1.5 text-[10px] font-semibold text-gray-500 uppercase tracking-wide">Rationale</p>
+            <StructuredRationale variant={active} />
+          </div>
 
-          {/* Validation results */}
+          {/* 3. Research Context */}
+          <div>
+            <p className="mb-1.5 text-[10px] font-semibold text-gray-500 uppercase tracking-wide">Research Context</p>
+            <ResearchContext composition={node.composition ?? {}} />
+          </div>
+
+          {/* 4. Validation */}
           {(() => {
             const results = getVariantValidation(active.label)
             if (results.length === 0) return null
@@ -2411,31 +2489,34 @@ function VariantsReadOnlyPanel({ node }: { node: WorkflowNode }) {
               ruleset: 'bg-gray-100 text-gray-600',
             }
             return (
-              <div className="rounded-lg border border-slate-200 bg-gradient-to-br from-slate-50 to-white">
-                <div className="flex items-center gap-2 px-3 py-2">
-                  <ShieldCheck size={12} className="text-indigo-500" />
-                  <span className="text-[11px] font-semibold text-gray-700">Validation</span>
-                  {failCount > 0 && <span className="rounded-full bg-red-100 px-1.5 py-0.5 text-[8px] font-bold text-red-700">{failCount} fail</span>}
-                  {warnCount > 0 && <span className="rounded-full bg-amber-100 px-1.5 py-0.5 text-[8px] font-bold text-amber-700">{warnCount} warn</span>}
-                  {passCount > 0 && <span className="rounded-full bg-green-100 px-1.5 py-0.5 text-[8px] font-bold text-green-700">{passCount} pass</span>}
-                </div>
-                <div className="border-t border-slate-100 px-3 py-2 space-y-1.5">
-                  {sorted.map((r, i) => (
-                    <div key={i} className="flex items-start gap-2 rounded-lg bg-white px-2.5 py-1.5 border border-gray-100">
-                      {r.status === 'pass' ? <CheckCircle2 size={12} className="mt-0.5 shrink-0 text-green-500" />
-                       : r.status === 'warn' ? <AlertTriangle size={12} className="mt-0.5 shrink-0 text-amber-500" />
-                       : <XCircle size={12} className="mt-0.5 shrink-0 text-red-500" />}
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[10px] font-semibold text-gray-800">{r.rule_name}</span>
-                          <span className={`rounded-full px-1.5 py-0.5 text-[8px] font-medium ${typeColors[r.rule_type] ?? 'bg-gray-50 text-gray-500'}`}>
-                            {r.rule_type}
-                          </span>
+              <div>
+                <p className="mb-1.5 text-[10px] font-semibold text-gray-500 uppercase tracking-wide">Validation</p>
+                <div className="rounded-lg border border-slate-200 bg-gradient-to-br from-slate-50 to-white">
+                  <div className="flex items-center gap-2 px-3 py-2">
+                    <ShieldCheck size={12} className="text-indigo-500" />
+                    <span className="text-[11px] font-semibold text-gray-700">Results</span>
+                    {failCount > 0 && <span className="rounded-full bg-red-100 px-1.5 py-0.5 text-[8px] font-bold text-red-700">{failCount} fail</span>}
+                    {warnCount > 0 && <span className="rounded-full bg-amber-100 px-1.5 py-0.5 text-[8px] font-bold text-amber-700">{warnCount} warn</span>}
+                    {passCount > 0 && <span className="rounded-full bg-green-100 px-1.5 py-0.5 text-[8px] font-bold text-green-700">{passCount} pass</span>}
+                  </div>
+                  <div className="border-t border-slate-100 px-3 py-2 space-y-1.5">
+                    {sorted.map((r, i) => (
+                      <div key={i} className="flex items-start gap-2 rounded-lg bg-white px-2.5 py-1.5 border border-gray-100">
+                        {r.status === 'pass' ? <CheckCircle2 size={12} className="mt-0.5 shrink-0 text-green-500" />
+                         : r.status === 'warn' ? <AlertTriangle size={12} className="mt-0.5 shrink-0 text-amber-500" />
+                         : <XCircle size={12} className="mt-0.5 shrink-0 text-red-500" />}
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-[10px] font-semibold text-gray-800">{r.rule_name}</span>
+                            <span className={`rounded-full px-1.5 py-0.5 text-[8px] font-medium ${typeColors[r.rule_type] ?? 'bg-gray-50 text-gray-500'}`}>
+                              {r.rule_type}
+                            </span>
+                          </div>
+                          {r.message && <p className="text-[10px] text-gray-500 mt-0.5">{r.message}</p>}
                         </div>
-                        {r.message && <p className="text-[10px] text-gray-500 mt-0.5">{r.message}</p>}
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             )
@@ -3031,28 +3112,25 @@ function EditWorkspace({ node, runId, allVariants, allPlatformNodes = [], onFeed
   const [revalidating, setRevalidating] = useState(false)
   const [historyKey, setHistoryKey] = useState(0)
   const [showDiffPreview, setShowDiffPreview] = useState(false)
-  const [lastSyncedText, setLastSyncedText] = useState(allVariants[0]?.text ?? '')
+  const prevServerTextRef = useRef(allVariants[0]?.text ?? '')
   const queryClient = useQueryClient()
 
   const variants = allVariants
   const active = variants[activeIdx] ?? null
 
-  // Sync editText when the variant text changes from the server (e.g. after save + refetch)
-  // but only if the user hasn't made local unsaved changes
   const serverText = active?.text ?? ''
-  if (serverText !== lastSyncedText) {
-    const userHasLocalEdits = editText !== lastSyncedText
-    if (!userHasLocalEdits) {
+  useEffect(() => {
+    if (serverText !== prevServerTextRef.current) {
       setEditText(serverText)
+      prevServerTextRef.current = serverText
     }
-    setLastSyncedText(serverText)
-  }
+  }, [serverText])
 
   const switchVariant = (idx: number) => {
     setActiveIdx(idx)
     const newText = variants[idx]?.text ?? ''
     setEditText(newText)
-    setLastSyncedText(newText)
+    prevServerTextRef.current = newText
     setHistoryKey((k) => k + 1)
     setShowDiffPreview(false)
   }
@@ -3063,9 +3141,9 @@ function EditWorkspace({ node, runId, allVariants, allPlatformNodes = [], onFeed
   const failCount = validationResults.filter((r) => r.status === 'fail').length
   const warnCount = validationResults.filter((r) => r.status === 'warn').length
   const researchCount = ((node.composition?.research_briefs ?? []) as unknown[]).length
-  const hasChanges = active && editText !== active.text
+  const hasChanges = active && editText !== prevServerTextRef.current
 
-  const liveDiffOps = hasChanges ? computeClientDiffOps(active.text, editText) : []
+  const liveDiffOps = hasChanges ? computeClientDiffOps(prevServerTextRef.current, editText) : []
 
   const doFeedback = async (action: string, finalText?: string, instruction?: string) => {
     setActionPending(action)
@@ -3078,7 +3156,8 @@ function EditWorkspace({ node, runId, allVariants, allPlatformNodes = [], onFeed
         user_instruction: instruction,
       })
       if (action === 'edit' && finalText) {
-        setLastSyncedText(finalText)
+        setEditText(finalText)
+        prevServerTextRef.current = finalText
       }
       onFeedback?.()
       setHistoryKey((k) => k + 1)
@@ -3163,26 +3242,17 @@ function EditWorkspace({ node, runId, allVariants, allPlatformNodes = [], onFeed
             {leftTab === 'output' && (
               <div className="space-y-4">
                 {/* Media */}
-                {(active.image_url || active.video_url) && (
-                  <div className="space-y-2">
-                    {active.image_url && (
-                      <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm">
-                        <img src={active.image_url} alt="Generated" className="h-40 w-full object-cover" />
-                      </div>
-                    )}
-                    {active.video_url && (
-                      <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm">
-                        <video src={active.video_url} controls className="h-40 w-full object-cover" />
-                      </div>
-                    )}
+                {active.image_url && (
+                  <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm">
+                    <img src={active.image_url} alt="Generated" className="h-40 w-full object-cover" />
                   </div>
                 )}
 
-                {/* Generated text */}
+                {/* Current text (reflects latest edits) */}
                 <div>
-                  <p className="mb-1.5 text-[10px] font-semibold text-gray-500 uppercase tracking-wide">Generated Output</p>
+                  <p className="mb-1.5 text-[10px] font-semibold text-gray-500 uppercase tracking-wide">Output</p>
                   <div className="rounded-lg border border-gray-200 bg-gray-50 p-3">
-                    <p className="text-xs leading-relaxed text-gray-700 whitespace-pre-wrap">{active.text}</p>
+                    <p className="text-xs leading-relaxed text-gray-700 whitespace-pre-wrap">{editText}</p>
                   </div>
                 </div>
               </div>
@@ -3317,7 +3387,7 @@ function EditWorkspace({ node, runId, allVariants, allPlatformNodes = [], onFeed
                     Save
                   </button>
                   <button
-                    onClick={() => setEditText(active.text)}
+                    onClick={() => setEditText(prevServerTextRef.current)}
                     disabled={!hasChanges}
                     className="rounded-lg px-3 py-2 text-[11px] text-gray-500 hover:bg-gray-100 disabled:opacity-40 transition-colors"
                   >
@@ -3366,7 +3436,7 @@ function EditWorkspace({ node, runId, allVariants, allPlatformNodes = [], onFeed
                     Accept Changes
                   </button>
                   <button
-                    onClick={() => { setEditText(active.text); setShowDiffPreview(false) }}
+                    onClick={() => { setEditText(prevServerTextRef.current); setShowDiffPreview(false) }}
                     className="flex items-center gap-1.5 rounded-lg bg-red-50 border border-red-200 px-4 py-2 text-[11px] font-medium text-red-600 hover:bg-red-100 transition-colors"
                   >
                     <XCircle size={11} /> Discard

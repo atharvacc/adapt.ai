@@ -12,7 +12,7 @@ class WorkflowDefinitionCreateRequest(BaseModel):
             "linkedin",
             "x",
             "instagram",
-            "tiktok",
+            "facebook",
         ]
     )
     default_voice_id: str | None = None
@@ -26,6 +26,7 @@ class WorkflowDefinitionCreateRequest(BaseModel):
 class WorkflowDefinitionUpdateRequest(BaseModel):
     name: str | None = None
     description: str | None = None
+    platforms: list[Platform] | None = None
     default_voice_id: str | None = None
     default_agent_id: str | None = None
     default_audience_ids: list[str] = Field(default_factory=list)

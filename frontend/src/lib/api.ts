@@ -77,6 +77,7 @@ export async function updateWorkflowDefinition(
   payload: {
     name?: string
     description?: string
+    platforms?: string[]
     default_voice_id?: string | null
     default_agent_id?: string | null
     default_audience_ids?: string[]
@@ -221,7 +222,7 @@ export async function createWorkflow(sourceContent: string): Promise<WorkflowRun
   const wf = await createWorkflowDefinition(
     'Default Workflow',
     'Local DAG workflow',
-    ['linkedin', 'x', 'instagram', 'tiktok'],
+    ['linkedin', 'x', 'instagram', 'facebook'],
   )
   return createWorkflowRun(wf.id, sourceContent)
 }

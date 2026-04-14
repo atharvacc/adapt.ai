@@ -50,11 +50,23 @@ def _get_client() -> anthropic.Anthropic:
 
 
 def _with_retries(fn):
-    """Execute fn() with retry on 429 rate-limit / 529 overloaded errors."""
+    """Execute fn() with retry on 429 rate-limit / 529 overloaded errors.
+    On 401 auth error, invalidate the cached client so the next call
+    re-reads the API key from DB/env, then re-raise.
+    """
+    global _client, _client_key
     backoff = INITIAL_BACKOFF_S
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             return fn()
+        except anthropic.AuthenticationError:
+            log.error(
+                "Authentication failed (401) — clearing cached client so "
+                "the next call re-reads the API key."
+            )
+            _client = None
+            _client_key = ""
+            raise
         except anthropic.RateLimitError as exc:
             retry_after = _parse_retry_after(exc)
             wait = retry_after if retry_after else backoff
@@ -117,11 +129,11 @@ PLATFORM_STYLE_GUIDE: dict[str, str] = {
         "15-25 relevant hashtags at the end. Emoji usage encouraged but tasteful. "
         "Ideal: 150-220 words."
     ),
-    "tiktok": (
-        "Spoken-word, conversational, high-energy hook in first 3 seconds. "
-        "Short punchy lines. Address the viewer directly ('you'). "
-        "Include 5-10 trending hashtags. Keep total under 150 words. "
-        "Script format — not a written post."
+    "facebook": (
+        "Conversational, community-oriented, shareable. Lead with a relatable hook. "
+        "Use 1-3 hashtags max. Encourage comments and shares. "
+        "Mix personal stories with value. Use line breaks for readability. "
+        "Ideal length: 100-250 words. End with a question or share prompt."
     ),
 }
 
@@ -361,7 +373,7 @@ def _make_voice_tools(posts: list[dict]):
     @lc_tool
     def analyze_top_posts(platform: str = "", limit: int = 10) -> str:
         """Retrieve top-performing posts ranked by engagement.
-        Can filter by platform (linkedin, x, instagram, tiktok).
+        Can filter by platform (linkedin, x, instagram, facebook).
         Returns the highest-engagement posts with full text, metrics, and media analysis."""
         limit = min(limit, 20)
         filtered = posts
@@ -706,7 +718,7 @@ After gathering enough data, produce your final brand voice profile as a JSON ob
     "linkedin": "how the voice adapts for LinkedIn",
     "x": "how it adapts for X/Twitter",
     "instagram": "how it adapts for Instagram",
-    "tiktok": "how it adapts for TikTok"
+    "facebook": "how it adapts for Facebook"
   }},
   "web_research_notes": "Brief summary of what you found from web research and how it influenced your analysis.",
   "top_performing_patterns": "Description of patterns in the highest-engagement content and why they work."

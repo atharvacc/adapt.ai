@@ -1,4 +1,4 @@
-export type Platform = 'linkedin' | 'x' | 'instagram' | 'tiktok'
+export type Platform = 'linkedin' | 'x' | 'instagram' | 'facebook'
 
 export type RationaleStruct = {
   strategy?: string
@@ -20,9 +20,6 @@ export type Variant = {
   consistency_score?: number
   image_prompt?: string
   image_url?: string
-  video_prompt?: string
-  video_url?: string
-  video_duration?: number
 }
 
 export type FeedbackAction = 'accept' | 'edit' | 'reject' | 'regenerate'

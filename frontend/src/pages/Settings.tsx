@@ -48,16 +48,6 @@ const SECTIONS: SectionDef[] = [
     ],
   },
   {
-    id: 'xai',
-    title: 'xAI (Grok Imagine Video)',
-    description: 'Generates short video clips for video-native platforms (TikTok, Instagram).',
-    helpUrl: 'https://console.x.ai/',
-    helpLabel: 'Get API Key',
-    fields: [
-      { key: 'xai_api_key', label: 'API Key', placeholder: 'xai-...' },
-    ],
-  },
-  {
     id: 'voyage',
     title: 'Voyage AI (Embeddings)',
     description: 'Vector embeddings for RAG retrieval. Optional — falls back to keyword search.',

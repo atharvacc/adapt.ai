@@ -27,14 +27,14 @@ import { createAccount, listAccounts, scrapeProfile, rescrapeAccount, syncAccoun
 import { PlatformIcon, PLATFORM_LABELS, PLATFORM_COLORS } from '../components/PlatformIcon'
 import type { Platform } from '../types'
 
-const PLATFORM_OPTIONS: Platform[] = ['linkedin', 'x', 'instagram', 'tiktok']
+const PLATFORM_OPTIONS: Platform[] = ['linkedin', 'x', 'instagram', 'facebook']
 
 const PLATFORM_URL_HINTS: { platform: Platform; url: string }[] = [
   { platform: 'linkedin', url: 'https://www.linkedin.com/in/username' },
   { platform: 'linkedin', url: 'https://www.linkedin.com/company/company-name' },
   { platform: 'x', url: 'https://x.com/username' },
   { platform: 'instagram', url: 'https://www.instagram.com/username' },
-  { platform: 'tiktok', url: 'https://www.tiktok.com/@username' },
+  { platform: 'facebook', url: 'https://www.facebook.com/pagename' },
 ]
 
 const TOKEN_HELP: Record<Platform, { label: string; url: string; hint: string }> = {
@@ -53,10 +53,10 @@ const TOKEN_HELP: Record<Platform, { label: string; url: string; hint: string }>
     url: 'https://developers.facebook.com/tools/explorer/',
     hint: 'Graph API Explorer → select your IG app → generate User Token',
   },
-  tiktok: {
-    label: 'TikTok Access Token',
-    url: 'https://developers.tiktok.com/apps/',
-    hint: 'Register app → OAuth flow → get access token',
+  facebook: {
+    label: 'Facebook Page Token',
+    url: 'https://developers.facebook.com/apps/',
+    hint: 'Create app → get page access token via Graph API Explorer',
   },
 }
 
@@ -178,7 +178,7 @@ export function Accounts() {
     if (/linkedin\.com\/(in|company)\//i.test(url)) return 'linkedin'
     if (/(x\.com|twitter\.com)\//i.test(url)) return 'x'
     if (/instagram\.com\//i.test(url)) return 'instagram'
-    if (/tiktok\.com\//i.test(url)) return 'tiktok'
+    if (/facebook\.com\//i.test(url)) return 'facebook'
     return null
   }
 
@@ -876,7 +876,7 @@ export function Accounts() {
                       <>
                         <AlertTriangle size={16} className="text-amber-600" />
                         <span className="text-sm text-amber-700">
-                          Could not detect platform. Supported: LinkedIn, X, Instagram, TikTok
+                          Could not detect platform. Supported: LinkedIn, X, Instagram, Facebook
                         </span>
                       </>
                     )}

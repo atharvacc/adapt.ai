@@ -73,7 +73,7 @@ function migrateActivities(raw: string[]): string[] {
   return Array.from(migrated).filter((k) => ACTIVITY_PRESETS.some((p) => p.key === k))
 }
 
-const PLATFORM_KEYS: Platform[] = ['linkedin', 'x', 'instagram', 'tiktok']
+const PLATFORM_KEYS: Platform[] = ['linkedin', 'x', 'instagram', 'facebook']
 
 const TONE_OPTIONS = ['casual', 'professional', 'inspirational', 'educational'] as const
 const FORMAT_OPTIONS = ['how-to', 'case-study', 'opinion', 'listicle', 'story', 'data-driven'] as const

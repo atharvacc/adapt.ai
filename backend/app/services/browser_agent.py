@@ -17,7 +17,7 @@ PLATFORM_PATTERNS: list[tuple[str, re.Pattern]] = [
     ("linkedin", re.compile(r"linkedin\.com/(?:in|company)/([^/?#]+)")),
     ("x",        re.compile(r"(?:x\.com|twitter\.com)/([^/?#]+)")),
     ("instagram", re.compile(r"instagram\.com/([^/?#]+)")),
-    ("tiktok",   re.compile(r"tiktok\.com/@?([^/?#]+)")),
+    ("facebook", re.compile(r"facebook\.com/([^/?#]+)")),
 ]
 
 MAX_TEXT_CHARS = 40_000
@@ -33,7 +33,7 @@ def detect_platform(url: str) -> tuple[str, str]:
             return platform, handle
     raise ValueError(
         f"Could not detect platform from URL: {url}. "
-        "Supported: LinkedIn (/in/ and /company/), X/Twitter, Instagram, TikTok"
+        "Supported: LinkedIn (/in/ and /company/), X/Twitter, Instagram, Facebook"
     )
 
 
@@ -76,8 +76,7 @@ async def scrape_profile(url: str, *, headless: bool = False) -> dict:
         )
 
         page = context.pages[0] if context.pages else await context.new_page()
-        if platform != "tiktok":
-            await page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+        await page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
 
         log.info("Navigating to %s", url)
         await page.goto(url, wait_until="domcontentloaded", timeout=30_000)
@@ -171,8 +170,8 @@ async def _deep_scrape(page, platform: str, handle: str, url: str):
         return await _scrape_x(page, handle, url)
     elif platform == "instagram":
         return await _scrape_instagram(page, handle, url)
-    elif platform == "tiktok":
-        return await _scrape_tiktok(page, handle, url)
+    elif platform == "facebook":
+        return await _scrape_facebook(page, handle, url)
     else:
         return await _scrape_generic(page, platform)
 
@@ -344,32 +343,31 @@ async def _scrape_instagram(page, handle: str, url: str):
     return text, all_media, title
 
 
-# ---- TikTok ----
+# ---- Facebook ----
 
-_TT_VIDEO_URL_JS = """
+_FB_POST_URL_JS = """
 (() => {
     const urls = new Set();
-    document.querySelectorAll('a[href*="/video/"]').forEach(a => {
+    document.querySelectorAll('a[href*="/posts/"], a[href*="/photos/"], a[href*="/videos/"]').forEach(a => {
         const href = a.getAttribute('href');
-        if (href && href.includes('/video/')) urls.add(href);
+        if (href) urls.add(href);
     });
     return [...urls];
 })();
 """
 
-async def _scrape_tiktok(page, handle: str, url: str):
+async def _scrape_facebook(page, handle: str, url: str):
     await page.wait_for_timeout(2000)
-    await _dismiss_popups(page, "tiktok")
+    await _dismiss_popups(page, "facebook")
     profile_text = await page.inner_text("body")
     profile_text = profile_text[:15_000]
 
-    # Phase 1: Scroll to collect video URLs (TikTok also virtualizes)
     collected_hrefs: list[str] = []
     seen_hrefs: set[str] = set()
 
-    for i in range(12):
+    for i in range(10):
         try:
-            hrefs = await page.evaluate(_TT_VIDEO_URL_JS)
+            hrefs = await page.evaluate(_FB_POST_URL_JS)
             for h in hrefs:
                 if h not in seen_hrefs:
                     seen_hrefs.add(h)
@@ -377,48 +375,45 @@ async def _scrape_tiktok(page, handle: str, url: str):
         except Exception:
             pass
         await page.evaluate("window.scrollBy(0, window.innerHeight)")
-        await page.wait_for_timeout(1200)
+        await page.wait_for_timeout(1500)
         if i % 4 == 3:
-            log.info("TT grid scroll %d / 12 — %d URLs collected", i + 1, len(collected_hrefs))
+            log.info("FB page scroll %d / 10 — %d URLs collected", i + 1, len(collected_hrefs))
 
     max_posts = min(len(collected_hrefs), 50)
-    log.info("TikTok: collected %d unique video URLs, will visit up to %d", len(collected_hrefs), max_posts)
+    log.info("Facebook: collected %d unique post URLs, will visit up to %d", len(collected_hrefs), max_posts)
 
-    # Phase 2: Visit each video page directly
     post_details: list[str] = []
     all_media: dict = {"images": [], "videos": []}
 
     for idx, href in enumerate(collected_hrefs[:max_posts]):
-        video_url = href if href.startswith("http") else f"https://www.tiktok.com{href}"
+        post_url = href if href.startswith("http") else f"https://www.facebook.com{href}"
         try:
-            await page.goto(video_url, wait_until="domcontentloaded", timeout=20_000)
+            await page.goto(post_url, wait_until="domcontentloaded", timeout=20_000)
             await page.wait_for_timeout(2000)
-            await _dismiss_popups(page, "tiktok")
+            await _dismiss_popups(page, "facebook")
 
-            # Expand description
             await _click_all_see_more(page, [
-                'button:has-text("more")',
-                '[data-e2e="browse-more"]',
-                'span:has-text("more")',
+                'div[role="button"]:has-text("See more")',
+                'span:has-text("See more")',
             ], max_clicks=3)
 
             detail_text = await page.inner_text("body")
-            post_details.append(f"--- TT VIDEO {idx+1} ({video_url}) ---\n{detail_text[:4000]}")
+            post_details.append(f"--- FB POST {idx+1} ({post_url}) ---\n{detail_text[:4000]}")
 
             post_media = await _extract_media(page)
             all_media["images"].extend(post_media.get("images", []))
             all_media["videos"].extend(post_media.get("videos", []))
 
             if (idx + 1) % 10 == 0:
-                log.info("TT videos visited: %d / %d", idx + 1, max_posts)
+                log.info("FB posts visited: %d / %d", idx + 1, max_posts)
 
         except Exception as exc:
-            log.debug("TikTok video %d (%s) failed: %s", idx, video_url, exc)
+            log.debug("Facebook post %d (%s) failed: %s", idx, post_url, exc)
 
     title = await page.title()
     posts_text = "\n\n".join(post_details)
 
-    text = f"=== PROFILE PAGE ===\n{profile_text}\n\n=== INDIVIDUAL VIDEOS ===\n{posts_text[:MAX_TEXT_CHARS]}"
+    text = f"=== PROFILE PAGE ===\n{profile_text}\n\n=== INDIVIDUAL POSTS ===\n{posts_text[:MAX_TEXT_CHARS]}"
     return text, all_media, title
 
 
@@ -504,7 +499,6 @@ async def _click_all_see_more(
 
 def _build_helper_html(platform: str, handle: str, url: str) -> str:
     """Return a self-contained HTML page for the 'Continue' helper tab."""
-    tiktok_note = ""
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><title>Adapt AI — Capture</title></head>
 <body style="margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
@@ -517,7 +511,6 @@ background:linear-gradient(135deg,#f5f3ff,#ede9fe);font-family:system-ui,-apple-
     <p style="color:#6b7280;font-size:14px;line-height:1.6;margin:0 0 8px;">
         Importing <strong>{handle}</strong> from <strong>{platform.title()}</strong>
     </p>
-    {tiktok_note}
     <p style="color:#6b7280;font-size:13px;line-height:1.6;margin:0 0 24px;">
         Switch to the <strong>other tab</strong> to sign in if needed.<br>
         When the profile page is loaded, come back here and click below.
@@ -618,7 +611,7 @@ MEDIA_EXTRACT_JS = """
         videos.push({ src, poster });
     });
 
-    // also grab background-image video thumbnails (TikTok, IG)
+    // also grab background-image video thumbnails (Facebook, IG)
     document.querySelectorAll('[style*="background-image"]').forEach(el => {
         const match = el.style.backgroundImage.match(/url\\(['"]?(.*?)['"]?\\)/);
         if (!match) return;
@@ -1077,8 +1070,7 @@ async def scrape_followers(url: str, *, headless: bool = False, limit: int = 10)
         )
 
         page = context.pages[0] if context.pages else await context.new_page()
-        if platform != "tiktok":
-            await page.add_init_script(
+        await page.add_init_script(
                 "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
             )
 
@@ -1274,7 +1266,7 @@ _PROFILE_URL_TEMPLATES = {
     "x": "https://x.com/{handle}",
     "linkedin": "https://www.linkedin.com/in/{handle}",
     "instagram": "https://www.instagram.com/{handle}",
-    "tiktok": "https://www.tiktok.com/@{handle}",
+    "facebook": "https://www.facebook.com/{handle}",
 }
 
 

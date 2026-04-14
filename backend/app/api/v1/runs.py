@@ -104,7 +104,7 @@ def regenerate_variant(
     source_content = stored.source_content
     run_data = stored.run_payload
 
-    if platform not in {"linkedin", "x", "instagram", "tiktok"}:
+    if platform not in {"linkedin", "x", "instagram", "facebook"}:
         raise HTTPException(status_code=400, detail="Unsupported platform")
 
     platform_value = cast(Platform, platform)

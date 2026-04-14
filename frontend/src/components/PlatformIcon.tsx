@@ -1,28 +1,28 @@
 import linkedinSvg from '../assets/platforms/linkedin.svg'
 import xSvg from '../assets/platforms/x.svg'
 import instagramSvg from '../assets/platforms/instagram.svg'
-import tiktokSvg from '../assets/platforms/tiktok.svg'
+import facebookSvg from '../assets/platforms/facebook.svg'
 import type { Platform } from '../types'
 
 const ICONS: Record<Platform, string> = {
   linkedin: linkedinSvg,
   x: xSvg,
   instagram: instagramSvg,
-  tiktok: tiktokSvg,
+  facebook: facebookSvg,
 }
 
 const PLATFORM_LABELS: Record<Platform, string> = {
   linkedin: 'LinkedIn',
   x: 'X / Twitter',
   instagram: 'Instagram',
-  tiktok: 'TikTok',
+  facebook: 'Facebook',
 }
 
 const PLATFORM_COLORS: Record<Platform, string> = {
   linkedin: '#0A66C2',
   x: '#000000',
   instagram: '#E4405F',
-  tiktok: '#000000',
+  facebook: '#1877F2',
 }
 
 export function PlatformIcon({

@@ -14,7 +14,6 @@ from app.db.models import ConfigRecord
 ALL_CONFIG_KEYS = [
     "anthropic_api_key",
     "openai_api_key",
-    "xai_api_key",
     "voyage_api_key",
     "langsmith_api_key",
     "langsmith_project",
@@ -24,8 +23,7 @@ ALL_CONFIG_KEYS = [
     "linkedin_client_secret",
     "facebook_app_id",
     "facebook_app_secret",
-    "tiktok_client_key",
-    "tiktok_client_secret",
+    "facebook_page_token",
 ]
 
 

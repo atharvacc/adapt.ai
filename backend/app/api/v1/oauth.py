@@ -54,7 +54,7 @@ def available_platforms(db: Session = Depends(get_db)) -> dict:
         "x": bool(_cfg(db, "x_client_id")),
         "linkedin": bool(_cfg(db, "linkedin_client_id")),
         "instagram": bool(_cfg(db, "facebook_app_id")),
-        "tiktok": bool(_cfg(db, "tiktok_client_key")),
+        "facebook": bool(_cfg(db, "facebook_app_id")),
     }
 
 
@@ -224,30 +224,30 @@ async def instagram_callback(
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-#  TikTok
+#  Facebook
 # ═══════════════════════════════════════════════════════════════════════════
 
-@router.get("/tiktok/authorize")
-def tiktok_authorize(db: Session = Depends(get_db)):
-    client_key = _cfg(db, "tiktok_client_key")
-    if not client_key:
-        raise HTTPException(400, "TIKTOK_CLIENT_KEY not configured — add it in Settings")
+@router.get("/facebook/authorize")
+def facebook_authorize(db: Session = Depends(get_db)):
+    app_id = _cfg(db, "facebook_app_id")
+    if not app_id:
+        raise HTTPException(400, "FACEBOOK_APP_ID not configured — add it in Settings")
 
     state = secrets.token_urlsafe(32)
-    _oauth_state[state] = {"platform": "tiktok", "client_key": client_key}
+    _oauth_state[state] = {"platform": "facebook", "app_id": app_id}
 
     params = {
-        "client_key": client_key,
+        "client_id": app_id,
+        "redirect_uri": _callback_url("facebook"),
+        "scope": "pages_show_list,pages_read_engagement,pages_manage_posts",
         "response_type": "code",
-        "scope": "user.info.basic,video.list",
-        "redirect_uri": _callback_url("tiktok"),
         "state": state,
     }
-    return {"url": f"https://www.tiktok.com/v2/auth/authorize/?{urlencode(params)}"}
+    return {"url": f"https://www.facebook.com/v19.0/dialog/oauth?{urlencode(params)}"}
 
 
-@router.get("/tiktok/callback")
-async def tiktok_callback(
+@router.get("/facebook/callback")
+async def facebook_callback(
     code: str = Query(...),
     state: str = Query(...),
     db: Session = Depends(get_db),
@@ -256,24 +256,23 @@ async def tiktok_callback(
     if not stored:
         raise HTTPException(400, "Invalid or expired state")
 
-    client_key = stored["client_key"]
-    client_secret = _cfg(db, "tiktok_client_secret")
+    app_id = stored["app_id"]
+    app_secret = _cfg(db, "facebook_app_secret")
 
     async with httpx.AsyncClient(timeout=15) as client:
-        token_resp = await client.post(
-            "https://open.tiktokapis.com/v2/oauth/token/",
-            data={
-                "client_key": client_key,
-                "client_secret": client_secret,
+        token_resp = await client.get(
+            "https://graph.facebook.com/v19.0/oauth/access_token",
+            params={
+                "client_id": app_id,
+                "client_secret": app_secret,
+                "redirect_uri": _callback_url("facebook"),
                 "code": code,
-                "grant_type": "authorization_code",
-                "redirect_uri": _callback_url("tiktok"),
             },
         )
         token_resp.raise_for_status()
         tokens = token_resp.json()
 
-    return await _finish_oauth("tiktok", tokens.get("access_token", ""), db)
+    return await _finish_oauth("facebook", tokens.get("access_token", ""), db)
 
 
 # ───────────────────────────────────────────────────────────────────────────

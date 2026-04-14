@@ -5,7 +5,7 @@ import { listRuleSets, createRuleSet } from '../../lib/api'
 
 type RuleSet = Record<string, unknown>
 
-const PLATFORMS = ['LinkedIn', 'X (Twitter)', 'Instagram', 'TikTok', 'All'] as const
+const PLATFORMS = ['LinkedIn', 'X (Twitter)', 'Instagram', 'Facebook', 'All'] as const
 
 const RULE_TYPES = [
   { type: 'Platform', color: 'bg-blue-500' },

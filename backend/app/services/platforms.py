@@ -219,59 +219,57 @@ async def fetch_instagram_account(access_token: str, handle: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# TikTok  (TikTok Research / Display API)
+# Facebook  (Graph API v19.0)
 # ---------------------------------------------------------------------------
 
-async def fetch_tiktok_account(access_token: str, handle: str) -> dict:
-    handle = handle.lstrip("@")
-    headers = {"Authorization": f"Bearer {access_token}"}
+async def fetch_facebook_account(access_token: str, handle: str) -> dict:
+    base = "https://graph.facebook.com/v19.0"
+    params = {"access_token": access_token}
     async with httpx.AsyncClient(timeout=15) as client:
-        user_resp = await client.get(
-            "https://open.tiktokapis.com/v2/user/info/",
-            headers=headers,
-            params={"fields": "display_name,avatar_url,follower_count,bio_description"},
+        page_resp = await client.get(
+            f"{base}/{handle}",
+            params={**params, "fields": "name,about,fan_count,picture.type(large)"},
         )
-        user_resp.raise_for_status()
-        user_data = user_resp.json().get("data", {}).get("user", {})
+        page_resp.raise_for_status()
+        page_data = page_resp.json()
 
         profile = {
-            "name": user_data.get("display_name", handle),
-            "handle": f"@{handle}",
-            "bio": user_data.get("bio_description", ""),
-            "followers": user_data.get("follower_count", 0),
-            "avatar_url": user_data.get("avatar_url", ""),
+            "name": page_data.get("name", handle),
+            "handle": handle,
+            "bio": page_data.get("about", ""),
+            "followers": page_data.get("fan_count", 0),
+            "avatar_url": page_data.get("picture", {}).get("data", {}).get("url", ""),
         }
 
         posts: list[dict] = []
         try:
-            videos_resp = await client.post(
-                "https://open.tiktokapis.com/v2/video/list/",
-                headers=headers,
-                json={"max_count": 20},
-                params={"fields": "id,title,create_time,like_count,comment_count,share_count,view_count"},
+            feed_resp = await client.get(
+                f"{base}/{handle}/feed",
+                params={
+                    **params,
+                    "fields": "id,message,created_time,type,likes.summary(true),comments.summary(true),shares",
+                    "limit": "20",
+                },
             )
-            if videos_resp.status_code == 200:
-                for v in videos_resp.json().get("data", {}).get("videos", []):
-                    likes = v.get("like_count", 0)
-                    comments = v.get("comment_count", 0)
-                    shares = v.get("share_count", 0)
+            if feed_resp.status_code == 200:
+                for p in feed_resp.json().get("data", []):
+                    likes = p.get("likes", {}).get("summary", {}).get("total_count", 0)
+                    comments = p.get("comments", {}).get("summary", {}).get("total_count", 0)
+                    shares = p.get("shares", {}).get("count", 0)
                     posts.append({
-                        "id": v.get("id", ""),
-                        "text": v.get("title", ""),
-                        "date": datetime.fromtimestamp(
-                            v.get("create_time", 0), tz=timezone.utc
-                        ).isoformat() if v.get("create_time") else "",
-                        "type": "video",
+                        "id": p.get("id", ""),
+                        "text": p.get("message", ""),
+                        "date": p.get("created_time", ""),
+                        "type": p.get("type", "status"),
                         "engagement": {
                             "likes": likes,
                             "comments": comments,
                             "shares": shares,
-                            "views": v.get("view_count", 0),
                             "total": likes + comments + shares,
                         },
                     })
         except Exception:
-            log.warning("Could not fetch TikTok videos")
+            log.warning("Could not fetch Facebook feed posts")
 
     return {
         "profile": profile,
@@ -288,7 +286,7 @@ PLATFORM_FETCHERS = {
     "x": fetch_x_account,
     "linkedin": fetch_linkedin_account,
     "instagram": fetch_instagram_account,
-    "tiktok": fetch_tiktok_account,
+    "facebook": fetch_facebook_account,
 }
 
 

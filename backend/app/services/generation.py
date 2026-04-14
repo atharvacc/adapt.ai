@@ -15,7 +15,7 @@ STYLE_GUIDE: dict[Platform, str] = {
     "linkedin": "Professional, insight-led, 3-5 hashtags, no emojis.",
     "x": "Punchy, concise, first-line hook, 1-2 hashtags.",
     "instagram": "Visual, story-driven, CTA at end, 15-25 hashtags.",
-    "tiktok": "Spoken-word, high-energy hook, short lines, 5-10 hashtags.",
+    "facebook": "Conversational, shareable, community-oriented, 1-3 hashtags.",
 }
 
 

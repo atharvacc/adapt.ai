@@ -8,7 +8,6 @@ class Settings(BaseSettings):
     redis_url: str = "redis://localhost:6379/0"
     anthropic_api_key: str = ""
     openai_api_key: str = ""
-    xai_api_key: str = ""
     voyage_api_key: str = ""
 
     langsmith_api_key: str = ""
@@ -29,9 +28,8 @@ class Settings(BaseSettings):
     facebook_app_id: str = ""
     facebook_app_secret: str = ""
 
-    # TikTok  (OAuth 2.0)
-    tiktok_client_key: str = ""
-    tiktok_client_secret: str = ""
+    # Facebook  (Graph API)
+    facebook_page_token: str = ""
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 

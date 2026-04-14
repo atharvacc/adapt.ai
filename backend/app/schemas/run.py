@@ -1,7 +1,7 @@
 from typing import Literal
 from pydantic import BaseModel, Field
 
-Platform = Literal["linkedin", "x", "instagram", "tiktok"]
+Platform = Literal["linkedin", "x", "instagram", "facebook"]
 
 
 class RunCreateRequest(BaseModel):
@@ -10,7 +10,7 @@ class RunCreateRequest(BaseModel):
         "linkedin",
         "x",
         "instagram",
-        "tiktok",
+        "facebook",
     ]
 
 

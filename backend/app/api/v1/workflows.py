@@ -46,7 +46,7 @@ from app.schemas.workflow import (
 router = APIRouter(prefix="/v1/workflows", tags=["workflows"])
 
 
-_VALID_PLATFORMS = {"linkedin", "x", "instagram", "tiktok"}
+_VALID_PLATFORMS = {"linkedin", "x", "instagram", "facebook"}
 
 
 def _def_response(row: WorkflowDefinitionRecord) -> WorkflowDefinitionResponse:
@@ -117,6 +117,8 @@ def update_workflow(
         row.name = payload.name
     if payload.description is not None:
         row.description = payload.description
+    if payload.platforms is not None:
+        row.platforms = [p for p in payload.platforms if p in _VALID_PLATFORMS]
     if payload.default_voice_id is not None:
         row.default_voice_id = payload.default_voice_id
     if payload.default_agent_id is not None:
