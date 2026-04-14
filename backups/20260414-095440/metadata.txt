@@ -1,0 +1,4 @@
+created_at=20260414-095440
+project_root=/Users/atharvachalke/Desktop/tech_folders/adapt-ai
+contains_postgres_dump=true
+contains_minio_tar=true

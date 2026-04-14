@@ -12,6 +12,7 @@ FRONTEND_PID_FILE="${LOG_DIR}/frontend.pid"
 BACKEND_URL="http://127.0.0.1:8000"
 FRONTEND_URL="http://127.0.0.1:5173"
 BACKEND_PORT="8000"
+BACKUPS_DIR="${ROOT_DIR}/backups"
 
 kill_listener_on_port() {
   local port="$1"
@@ -94,6 +95,23 @@ npm --prefix "${FRONTEND_DIR}" install
 
 mkdir -p "${LOG_DIR}"
 
+LATEST_BACKUP_DIR=""
+if [[ -d "${BACKUPS_DIR}" ]]; then
+  while IFS= read -r candidate; do
+    if [[ -f "${candidate}/postgres.dump" ]]; then
+      LATEST_BACKUP_DIR="${candidate}"
+      break
+    fi
+  done < <(ls -1dt "${BACKUPS_DIR}"/* 2>/dev/null || true)
+fi
+
+if [[ -n "${LATEST_BACKUP_DIR}" ]]; then
+  echo "==> Restoring latest backup: ${LATEST_BACKUP_DIR}"
+  "${ROOT_DIR}/scripts/restore_data.sh" "${LATEST_BACKUP_DIR}"
+else
+  echo "==> No backup found under ${BACKUPS_DIR}; will create demo seed data."
+fi
+
 if lsof -tiTCP:${BACKEND_PORT} -sTCP:LISTEN >/dev/null 2>&1; then
   echo "==> Port ${BACKEND_PORT} is occupied. Restarting backend listener..."
   kill_listener_on_port "${BACKEND_PORT}"
@@ -115,6 +133,7 @@ echo "==> Starting frontend..."
   echo $! > "${FRONTEND_PID_FILE}"
 )
 
+if [[ -z "${LATEST_BACKUP_DIR}" ]]; then
 echo "==> Prepopulating demo data..."
 "${BACKEND_DIR}/.venv/bin/python" - <<'PY'
 import json
@@ -191,6 +210,7 @@ if not workflows:
 
 print("Demo data ready.")
 PY
+fi
 
 echo
 echo "Setup complete. Everything is running."
