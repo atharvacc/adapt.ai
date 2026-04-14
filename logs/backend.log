@@ -1,2 +1,1802 @@
 INFO:     Will watch for changes in these directories: ['/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend']
-ERROR:    [Errno 48] Address already in use
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [25620] using WatchFiles
+INFO:     Started server process [25636]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50768 - "GET /v1/workflows HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50775 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50793 - "GET /v1/workflows/0b31193f-127a-46dc-be97-34d200f37f04/runs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/0b31193f-127a-46dc-be97-34d200f37f04 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50793 - "GET /v1/personas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50796 - "GET /v1/rule-sets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50793 - "GET /v1/workflows/0b31193f-127a-46dc-be97-34d200f37f04 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50796 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50796 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50796 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50796 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50796 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50796 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50792 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50823 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50823 - "GET /v1/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50829 - "GET /v1/rule-sets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/personas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50876 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50876 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50809 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50890 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50890 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50890 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50890 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50890 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50897 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50911 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50919 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50919 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50925 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50925 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50878 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50933 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50933 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50933 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50933 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50933 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50940 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50940 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50933 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50933 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50913 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50947 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50933 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51127 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51125 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51129 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51164 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51164 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51176 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51176 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51182 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51182 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51170 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51195 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51195 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51202 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51202 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51166 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51230 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51230 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51236 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51236 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51243 - "GET /v1/rule-sets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51242 - "GET /v1/personas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51215 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51276 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51276 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51276 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51276 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51284 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51284 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51284 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51284 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51284 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51284 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51300 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51300 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51305 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51305 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51305 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51305 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51305 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51305 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51305 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51317 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51317 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51317 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51317 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51323 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51323 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51323 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51336 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51336 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51343 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51343 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51343 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51343 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51343 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51343 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51350 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51350 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51350 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51350 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51350 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51371 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51371 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51293 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51380 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51380 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51380 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51380 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51380 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51390 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51390 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51390 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51390 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51390 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51398 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51398 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51398 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51398 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51398 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51407 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51407 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51407 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51407 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51407 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A13%3A17.501953 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51358 - "GET /v1/personas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51424 - "GET /v1/rule-sets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51424 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "OPTIONS /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/nodes/ff4541a4-df07-4d77-a42e-a58509577044 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "PUT /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/nodes/ff4541a4-df07-4d77-a42e-a58509577044 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51414 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51501 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51503 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51501 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51503 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51503 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51503 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51534 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51503 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51503 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51503 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51542 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51542 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Media voting: images=True (source_images=0)
+INFO:app.services.workflow_engine:[linkedin] Crafting image prompt for variant A …
+INFO:     127.0.0.1:51542 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51542 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51550 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51550 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Image prompt ready (1061 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[linkedin] Image result for A: None (generation returned empty)
+INFO:app.services.workflow_engine:[linkedin] Crafting image prompt for variant B …
+INFO:     127.0.0.1:51550 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51550 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51561 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51561 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Image prompt ready (938 chars), generating image …
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[linkedin] Image result for B: None (generation returned empty)
+INFO:app.services.workflow_engine:[linkedin] Crafting image prompt for variant C …
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51566 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51566 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Image prompt ready (951 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[linkedin] Image result for C: None (generation returned empty)
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51508 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51566 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51566 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51566 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51566 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51596 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51596 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51592 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51592 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51592 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51601 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51601 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51592 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51592 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51601 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=linkedin&since=2026-04-14T16%3A35%3A47.686869 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51608 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51608 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51608 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51608 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Media voting: images=True (source_images=0)
+INFO:app.services.workflow_engine:[linkedin] Crafting image prompt for variant A …
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Image prompt ready (1043 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[linkedin] Image result for A: None (generation returned empty)
+INFO:app.services.workflow_engine:[linkedin] Crafting image prompt for variant B …
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51620 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51620 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51620 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Image prompt ready (1064 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[linkedin] Image result for B: None (generation returned empty)
+INFO:app.services.workflow_engine:[linkedin] Crafting image prompt for variant C …
+INFO:     127.0.0.1:51620 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51620 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Image prompt ready (844 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[linkedin] Image result for C: None (generation returned empty)
+INFO:     127.0.0.1:51620 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51620 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51620 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51620 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51620 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51626 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51626 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51626 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51626 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51626 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51626 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51633 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51633 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51633 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51633 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51633 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51633 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51633 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51633 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51650 - "GET /v1/workflows/0b31193f-127a-46dc-be97-34d200f37f04 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Media voting: images=True (source_images=0)
+INFO:app.services.workflow_engine:[linkedin] Crafting image prompt for variant A …
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Image prompt ready (960 chars), generating image …
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[linkedin] Image result for A: None (generation returned empty)
+INFO:app.services.workflow_engine:[linkedin] Crafting image prompt for variant B …
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Image prompt ready (1010 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[linkedin] Image result for B: None (generation returned empty)
+INFO:app.services.workflow_engine:[linkedin] Crafting image prompt for variant C …
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[linkedin] Image prompt ready (1180 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[linkedin] Image result for C: None (generation returned empty)
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51603 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:Pipeline completed for linkedin [run=105d15c5-650f-485c-83b0-a8ddf9487e9f, node=ff4541a4-df07-4d77-a42e-a58509577044]
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /v1/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/rule-sets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51703 - "GET /v1/personas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/0b31193f-127a-46dc-be97-34d200f37f04 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51704 - "GET /v1/personas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/rule-sets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51736 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51766 - "GET /v1/workflows HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51767 - "GET /v1/workflows/runs HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51769 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51771 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51771 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51769 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51772 - "GET /v1/workflows/0b31193f-127a-46dc-be97-34d200f37f04/runs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51769 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51771 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51778 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51778 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51778 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51778 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51778 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51778 - "GET /v1/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/personas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/rule-sets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51787 - "GET /v1/workflows/0b31193f-127a-46dc-be97-34d200f37f04/runs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /v1/workflows/0b31193f-127a-46dc-be97-34d200f37f04 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51906 - "GET /v1/rule-sets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/personas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "OPTIONS /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/nodes/97100b39-1667-4900-8715-280b4bcfccd7 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "PUT /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/nodes/97100b39-1667-4900-8715-280b4bcfccd7 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51797 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51917 - "GET /v1/personas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51918 - "GET /v1/rule-sets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51918 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51893 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51918 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51918 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51918 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:     127.0.0.1:51918 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:app.services.embeddings:VOYAGE_API_KEY not set — embeddings will use fallback storage
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 400 Bad Request"
+WARNING:app.services.workflow_engine:Claude MCP server call failed; retrying without MCP servers.
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 400 Bad Request"
+WARNING:app.services.workflow_engine:Claude MCP server call failed; retrying without MCP servers.
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 400 Bad Request"
+WARNING:app.services.workflow_engine:Claude MCP server call failed; retrying without MCP servers.
+INFO:     127.0.0.1:51918 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51942 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51942 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51942 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51956 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51942 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51956 - "GET /v1/personas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51942 - "GET /v1/voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /v1/rule-sets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51942 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51942 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51942 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51942 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51962 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51942 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51968 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51973 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51973 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51980 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51980 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51980 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51989 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51989 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52000 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52000 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51964 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[x] Media voting: images=True (source_images=0)
+INFO:app.services.workflow_engine:[x] Crafting image prompt for variant A …
+INFO:     127.0.0.1:52011 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52011 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[x] Image prompt ready (902 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[x] Image result for A: None (generation returned empty)
+INFO:app.services.workflow_engine:[x] Crafting image prompt for variant B …
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52018 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52018 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[x] Image prompt ready (953 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[x] Image result for B: None (generation returned empty)
+INFO:app.services.workflow_engine:[x] Crafting image prompt for variant C …
+INFO:     127.0.0.1:52018 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52018 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52025 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52025 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[x] Image prompt ready (870 chars), generating image …
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[x] Image result for C: None (generation returned empty)
+INFO:     127.0.0.1:52025 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52025 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52032 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52032 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:52032 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52039 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52039 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52049 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52049 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:52049 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52049 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52057 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52057 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52061 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52061 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52061 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52061 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52061 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52061 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52069 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52069 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52069 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52069 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[x] Media voting: images=True (source_images=0)
+INFO:app.services.workflow_engine:[x] Crafting image prompt for variant A …
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52075 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52075 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52075 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[x] Image prompt ready (880 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[x] Image result for A: None (generation returned empty)
+INFO:app.services.workflow_engine:[x] Crafting image prompt for variant B …
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52082 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52082 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[x] Image prompt ready (822 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[x] Image result for B: None (generation returned empty)
+INFO:app.services.workflow_engine:[x] Crafting image prompt for variant C …
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52082 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52091 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52091 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:[x] Image prompt ready (789 chars), generating image …
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 400 Bad Request"
+ERROR:app.services.image_gen:GPT Image 1.5 generation failed
+Traceback (most recent call last):
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/app/services/image_gen.py", line 272, in generate_image
+    result = client.images.generate(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/resources/images.py", line 887, in generate
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/atharvachalke/Desktop/tech_folders/adapt-ai/backend/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}
+INFO:app.services.workflow_engine:[x] Image result for C: None (generation returned empty)
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52109 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52109 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52109 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52117 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52117 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52128 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52128 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:app.services.workflow_engine:Pipeline completed for x [run=105d15c5-650f-485c-83b0-a8ddf9487e9f, node=97100b39-1667-4900-8715-280b4bcfccd7]
+INFO:app.services.workflow_engine:Run 105d15c5-650f-485c-83b0-a8ddf9487e9f completed with status=review
+INFO:     127.0.0.1:52133 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52133 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/traces?platform=x&since=2026-04-14T16%3A48%3A48.457085 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52004 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52172 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52172 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52193 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52312 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52312 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52312 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52312 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52312 - "GET /v1/workflows/runs/105d15c5-650f-485c-83b0-a8ddf9487e9f HTTP/1.1" 200 OK
