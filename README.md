@@ -41,10 +41,12 @@ This script automatically:
 
 1. Open `Intelligence Hub`.
 2. Create:
-   - Voice profiles
+   - Brand profiles
+      - Infer from accounts
+      - edit in-place
    - Writing personas
    - Rule sets
-3. Save defaults for your workflow definition.
+      - setup custom rules
 
 ### 4) Create and run a workflow
 

@@ -11,6 +11,26 @@ BACKEND_PID_FILE="${LOG_DIR}/backend.pid"
 FRONTEND_PID_FILE="${LOG_DIR}/frontend.pid"
 BACKEND_URL="http://127.0.0.1:8000"
 FRONTEND_URL="http://127.0.0.1:5173"
+BACKEND_PORT="8000"
+
+kill_listener_on_port() {
+  local port="$1"
+  local pids
+  pids="$(lsof -tiTCP:${port} -sTCP:LISTEN || true)"
+  if [[ -n "${pids}" ]]; then
+    echo "==> Killing stale listener(s) on port ${port}: ${pids}"
+    # shellcheck disable=SC2086
+    kill ${pids} || true
+    sleep 1
+    pids="$(lsof -tiTCP:${port} -sTCP:LISTEN || true)"
+    if [[ -n "${pids}" ]]; then
+      echo "==> Force killing listener(s) on port ${port}: ${pids}"
+      # shellcheck disable=SC2086
+      kill -9 ${pids} || true
+      sleep 1
+    fi
+  fi
+}
 
 usage() {
   cat <<EOF
@@ -74,72 +94,54 @@ npm --prefix "${FRONTEND_DIR}" install
 
 mkdir -p "${LOG_DIR}"
 
-if [[ -f "${BACKEND_PID_FILE}" ]] && kill -0 "$(cat "${BACKEND_PID_FILE}")" >/dev/null 2>&1; then
-  echo "==> Stopping existing backend process..."
-  kill "$(cat "${BACKEND_PID_FILE}")" || true
+if lsof -tiTCP:${BACKEND_PORT} -sTCP:LISTEN >/dev/null 2>&1; then
+  echo "==> Port ${BACKEND_PORT} is occupied. Restarting backend listener..."
+  kill_listener_on_port "${BACKEND_PORT}"
 fi
 
-if [[ -f "${FRONTEND_PID_FILE}" ]] && kill -0 "$(cat "${FRONTEND_PID_FILE}")" >/dev/null 2>&1; then
-  echo "==> Stopping existing frontend process..."
-  kill "$(cat "${FRONTEND_PID_FILE}")" || true
-fi
+echo "==> Starting backend..."
+(
+  cd "${BACKEND_DIR}"
+  nohup ./.venv/bin/uvicorn app.main:app --reload --host 127.0.0.1 --port 8000 \
+    > "${BACKEND_LOG}" 2>&1 &
+  echo $! > "${BACKEND_PID_FILE}"
+)
 
-if curl --max-time 3 -fsS "${BACKEND_URL}/health" >/dev/null 2>&1; then
-  echo "==> Backend already running on ${BACKEND_URL}; reusing it."
-else
-  echo "==> Starting backend..."
-  (
-    cd "${BACKEND_DIR}"
-    nohup ./.venv/bin/uvicorn app.main:app --reload --host 127.0.0.1 --port 8000 \
-      > "${BACKEND_LOG}" 2>&1 &
-    echo $! > "${BACKEND_PID_FILE}"
-  )
-fi
-
-echo "==> Waiting for backend health..."
-for _ in $(seq 1 60); do
-  if curl --max-time 3 -fsS "${BACKEND_URL}/health" >/dev/null 2>&1; then
-    break
-  fi
-  sleep 1
-done
-
-if ! curl --max-time 3 -fsS "${BACKEND_URL}/health" >/dev/null 2>&1; then
-  echo "Backend did not become healthy. Check: ${BACKEND_LOG}"
-  exit 1
-fi
-
-if curl --max-time 3 -fsS "${FRONTEND_URL}" >/dev/null 2>&1; then
-  echo "==> Frontend already running on ${FRONTEND_URL}; reusing it."
-else
-  echo "==> Starting frontend..."
-  (
-    cd "${FRONTEND_DIR}"
-    nohup npm run dev -- --host 127.0.0.1 --port 5173 \
-      > "${FRONTEND_LOG}" 2>&1 &
-    echo $! > "${FRONTEND_PID_FILE}"
-  )
-fi
+echo "==> Starting frontend..."
+(
+  cd "${FRONTEND_DIR}"
+  nohup npm run dev -- --host 127.0.0.1 --port 5173 \
+    > "${FRONTEND_LOG}" 2>&1 &
+  echo $! > "${FRONTEND_PID_FILE}"
+)
 
 echo "==> Prepopulating demo data..."
 "${BACKEND_DIR}/.venv/bin/python" - <<'PY'
 import json
+import time
 import urllib.request
 import urllib.error
 
 BASE = "http://127.0.0.1:8000"
 
 def req(method, path, payload=None):
-    url = BASE + path
-    data = None
-    headers = {}
-    if payload is not None:
-        data = json.dumps(payload).encode("utf-8")
-        headers["Content-Type"] = "application/json"
-    request = urllib.request.Request(url, data=data, headers=headers, method=method)
-    with urllib.request.urlopen(request, timeout=30) as resp:
-        body = resp.read().decode("utf-8")
-        return json.loads(body) if body else None
+    last_exc = None
+    for _ in range(5):
+        try:
+            url = BASE + path
+            data = None
+            headers = {}
+            if payload is not None:
+                data = json.dumps(payload).encode("utf-8")
+                headers["Content-Type"] = "application/json"
+            request = urllib.request.Request(url, data=data, headers=headers, method=method)
+            with urllib.request.urlopen(request, timeout=30) as resp:
+                body = resp.read().decode("utf-8")
+                return json.loads(body) if body else None
+        except Exception as exc:
+            last_exc = exc
+            time.sleep(1)
+    raise last_exc
 
 voices = req("GET", "/v1/voices")
 personas = req("GET", "/v1/personas")
