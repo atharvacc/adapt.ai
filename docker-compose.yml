@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: adapt
+      POSTGRES_PASSWORD: adapt
+      POSTGRES_DB: adapt
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7.4-alpine
+    ports:
+      - "6379:6379"
+
+  temporal:
+    image: temporalio/temporal:latest
+    ports:
+      - "7233:7233"
+      - "8233:8233"
+    command: ["server", "start-dev", "--ip", "0.0.0.0"]
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.8
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: adapt
+      MINIO_ROOT_PASSWORD: adapt12345
+    ports:
+      - "9001:9001"
+      - "9002:9000"
+    volumes:
+      - minio_data:/data
+
+  # Backend and frontend run LOCALLY (not in Docker) so the browser
+  # agent can open a visible Chromium window for profile scraping.
+  #
+  # Start infrastructure:  docker compose up -d
+  # Start backend:         cd backend && pip install -r requirements.txt && uvicorn app.main:app --reload --port 8000
+  # Start frontend:        cd frontend && npm install && npm run dev
+
+volumes:
+  pgdata:
+  clickhouse_data:
+  minio_data:
