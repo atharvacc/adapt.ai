@@ -226,6 +226,7 @@ def _claude_web_search(
     run_meta: dict | None = None,
     max_tokens: int = 4096,
     max_web_uses: int = 8,
+    mcp_servers: list[dict] | None = None,
 ) -> tuple[str, dict]:
     """Claude call with native web_search tool (auto-traced by LangSmith).
 
@@ -235,13 +236,30 @@ def _claude_web_search(
     from app.services.llm import _get_client, _with_retries
     client = _get_client()
     tools = [{"type": "web_search_20250305", "name": "web_search", "max_uses": max_web_uses}]
-    resp = _with_retries(lambda: client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=max_tokens,
-        system=system or "You are a research assistant. Provide factual, well-sourced findings.",
-        messages=[{"role": "user", "content": query}],
-        tools=tools,
-    ))
+    create_kwargs: dict[str, Any] = {
+        "model": "claude-sonnet-4-20250514",
+        "max_tokens": max_tokens,
+        "system": (
+            system or
+            "You are a research assistant. Provide factual, well-sourced findings."
+        ),
+        "messages": [{"role": "user", "content": query}],
+        "tools": tools,
+    }
+    if mcp_servers:
+        # Anthropic MCP servers are passed via extra_body in this SDK version.
+        create_kwargs["extra_body"] = {"mcp_servers": mcp_servers}
+    try:
+        resp = _with_retries(lambda: client.messages.create(**create_kwargs))
+    except Exception:
+        if mcp_servers:
+            log.warning(
+                "Claude MCP server call failed; retrying without MCP servers.",
+            )
+            create_kwargs.pop("extra_body", None)
+            resp = _with_retries(lambda: client.messages.create(**create_kwargs))
+        else:
+            raise
     text_parts = [b.text for b in resp.content if hasattr(b, "text")]
     usage = {"input": resp.usage.input_tokens, "output": resp.usage.output_tokens}
     return "\n".join(text_parts), usage
@@ -421,20 +439,57 @@ def _xpoz_supported(platform: str, activity: str) -> bool:
 
 
 _xpoz_client = None
+_xpoz_client_key = None
+
+
+def _get_xpoz_api_key() -> str:
+    """Fetch XPOZ API key from runtime config store or env settings."""
+    from app.core.settings import settings
+    from app.core.config_store import get_config
+    db = SessionLocal()
+    try:
+        return get_config(db, "xpoz_api_key") or settings.xpoz_api_key
+    finally:
+        db.close()
+
+
+def _get_xpoz_mcp_server() -> dict[str, Any] | None:
+    """Build Anthropic MCP server config for XPOZ."""
+    api_key = _get_xpoz_api_key()
+    if not api_key:
+        return None
+    return {
+        "type": "url",
+        "name": "xpoz",
+        "url": XPOZ_MCP_URL,
+        "authorization_token": api_key,
+    }
 
 
 def _get_xpoz_client():
     """Lazy-init an MCP HTTP client for XPOZ."""
-    global _xpoz_client
-    if _xpoz_client is not None:
+    global _xpoz_client, _xpoz_client_key
+    api_key = _get_xpoz_api_key()
+
+    if not api_key:
+        log.warning(
+            "XPOZ API key is missing. Set xpoz_api_key in Settings or backend/.env.",
+        )
+        return None
+
+    if _xpoz_client is not None and api_key == _xpoz_client_key:
         return _xpoz_client
     try:
         import httpx
         _xpoz_client = httpx.Client(
             base_url=XPOZ_MCP_URL,
             timeout=30.0,
-            headers={"Content-Type": "application/json"},
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {api_key}",
+            },
         )
+        _xpoz_client_key = api_key
         return _xpoz_client
     except Exception:
         log.exception("Failed to create XPOZ MCP client")
@@ -1164,16 +1219,13 @@ def _research_audience_platform(state: dict, brief: dict) -> dict:
     meta = _meta(state)
     meta["agent"] = "research_audience_platform"
 
-    xpoz_ctx = ""
     topic = brief.get("query", "audience engagement")
-    xpoz_result = _xpoz_research(
-        platform, "audience_platform", topic, run_meta=meta,
-    )
-    if xpoz_result:
-        xpoz_ctx = (
-            f"\n\nLive {platform} data (via XPOZ):\n"
-            f"{xpoz_result[:3000]}"
-        )
+    mcp_servers = None
+    if _xpoz_supported(platform, "audience_platform"):
+        xpoz_server = _get_xpoz_mcp_server()
+        if xpoz_server:
+            mcp_servers = [xpoz_server]
+    if mcp_servers:
         meta["research_source"] = "xpoz_mcp+claude_web_search"
     else:
         meta["research_source"] = "claude_web_search"
@@ -1183,8 +1235,8 @@ def _research_audience_platform(state: dict, brief: dict) -> dict:
         f"Query: {brief.get('query', '')}\n"
         f"Focus: {brief.get('focus', '')}\n\n"
         f"Audience profiles:\n{audience_text}\n\n"
-        f"Engagement data from past posts:\n{post_ctx}"
-        f"{xpoz_ctx}",
+        f"Engagement data from past posts:\n{post_ctx}\n\n"
+        f"If XPOZ MCP tools are available, use them for live {platform} evidence.",
         f"You are an audience & platform intelligence analyst "
         f"for {platform}. Research ALL of the following:\n"
         f"1. Audience segments — who engages most and why\n"
@@ -1203,6 +1255,7 @@ def _research_audience_platform(state: dict, brief: dict) -> dict:
         f' "risks": ["risk or gap 1"],'
         f' "rationale": "why these findings matter for the content brief"}}',
         run_meta=meta,
+        mcp_servers=mcp_servers,
     )
     result = _parse_json(raw, {
         "summary": "Audience & platform research completed.",
@@ -1222,16 +1275,13 @@ def _research_trends_listening(state: dict, brief: dict) -> dict:
     meta = _meta(state)
     meta["agent"] = "research_trends_listening"
 
-    xpoz_ctx = ""
     topic = brief.get("query", f"{platform} trending content")
-    xpoz_result = _xpoz_research(
-        platform, "trends_listening", topic, run_meta=meta,
-    )
-    if xpoz_result:
-        xpoz_ctx = (
-            f"\n\nLive {platform} trends data (via XPOZ):\n"
-            f"{xpoz_result[:3000]}"
-        )
+    mcp_servers = None
+    if _xpoz_supported(platform, "trends_listening"):
+        xpoz_server = _get_xpoz_mcp_server()
+        if xpoz_server:
+            mcp_servers = [xpoz_server]
+    if mcp_servers:
         meta["research_source"] = "xpoz_mcp+claude_web_search"
     else:
         meta["research_source"] = "claude_web_search"
@@ -1239,8 +1289,8 @@ def _research_trends_listening(state: dict, brief: dict) -> dict:
     raw, _ = _claude_web_search(
         f"Research for {platform} content.\n"
         f"Query: {brief.get('query', '')}\n"
-        f"Focus: {brief.get('focus', '')}"
-        f"{xpoz_ctx}",
+        f"Focus: {brief.get('focus', '')}\n\n"
+        f"If XPOZ MCP tools are available, use them for live {platform} trend signals.",
         f"You are a trends & social listening analyst "
         f"for {platform}. Research ALL of the following:\n"
         f"1. Trending topics & hashtags in this niche right "
@@ -1263,6 +1313,7 @@ def _research_trends_listening(state: dict, brief: dict) -> dict:
         f' "risks": ["trend risk or potential backlash"],'
         f' "rationale": "why these trends matter for this content brief"}}',
         run_meta=meta,
+        mcp_servers=mcp_servers,
     )
     result = _parse_json(raw, {
         "summary": "Trends & social listening research completed.",
@@ -1290,15 +1341,12 @@ def _research_competitor_industry(
     meta = _meta(state)
     meta["agent"] = "research_competitor_industry"
 
-    xpoz_ctx = ""
-    xpoz_result = _xpoz_research(
-        platform, "competitor_industry", query, run_meta=meta,
-    )
-    if xpoz_result:
-        xpoz_ctx = (
-            f"\n\nLive {platform} competitor data (via XPOZ):\n"
-            f"{xpoz_result[:3000]}"
-        )
+    mcp_servers = None
+    if _xpoz_supported(platform, "competitor_industry"):
+        xpoz_server = _get_xpoz_mcp_server()
+        if xpoz_server:
+            mcp_servers = [xpoz_server]
+    if mcp_servers:
         meta["research_source"] = "xpoz_mcp+claude_web_search"
     else:
         meta["research_source"] = "claude_web_search"
@@ -1306,8 +1354,8 @@ def _research_competitor_industry(
     raw, _ = _claude_web_search(
         f"Research: {query}\n"
         f"Focus: {brief.get('focus', '')}\n\n"
-        f"Known competitor/peer posts:\n{post_ctx}"
-        f"{xpoz_ctx}",
+        f"Known competitor/peer posts:\n{post_ctx}\n\n"
+        f"If XPOZ MCP tools are available, use them for live {platform} competitor data.",
         "You are a competitive intelligence and industry "
         "analyst. Research ALL of the following:\n"
         "1. Competitor analysis — what peers and thought "
@@ -1328,6 +1376,7 @@ def _research_competitor_industry(
         ' "risks": ["competitive risk or market concern"],'
         ' "rationale": "why these competitive insights matter for the content brief"}',
         run_meta=meta,
+        mcp_servers=mcp_servers,
     )
     result = _parse_json(raw, {
         "summary": "Competitor & industry research completed.",
@@ -1417,24 +1466,23 @@ def _research_generic(state: dict, brief: dict) -> dict:
     meta = _meta(state)
     meta["agent"] = "research_generic"
 
-    xpoz_ctx = ""
-    xpoz_result = _xpoz_research(
-        platform, activity, query, run_meta=meta,
-    )
-    if xpoz_result:
-        xpoz_ctx = (
-            f"\n\nLive {platform} data (via XPOZ):\n"
-            f"{xpoz_result[:2000]}"
-        )
+    mcp_servers = None
+    if _xpoz_supported(platform, activity):
+        xpoz_server = _get_xpoz_mcp_server()
+        if xpoz_server:
+            mcp_servers = [xpoz_server]
+    if mcp_servers:
         meta["research_source"] = "xpoz_mcp+claude_web_search"
     else:
         meta["research_source"] = "claude_web_search"
 
     raw, _ = _claude_web_search(
         f"Research: {query}\nFocus: {brief.get('focus', '')}\n\n"
-        f"Existing context:\n{rag_text}{xpoz_ctx}",
+        f"Existing context:\n{rag_text}\n\n"
+        f"If XPOZ MCP tools are available, use them for live {platform} research.",
         "You are a content researcher. Output JSON with: findings, rationale.",
         run_meta=meta,
+        mcp_servers=mcp_servers,
     )
     result = _parse_json(raw, {"findings": raw[:500], "rationale": "Generic research"})
     result["_research_source"] = meta.get("research_source", "unknown")

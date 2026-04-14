@@ -58,6 +58,16 @@ const SECTIONS: SectionDef[] = [
     ],
   },
   {
+    id: 'xpoz',
+    title: 'XPOZ MCP',
+    description: 'Authentication for live social research tools (XPOZ MCP).',
+    helpUrl: 'https://xpoz.ai/',
+    helpLabel: 'Open XPOZ',
+    fields: [
+      { key: 'xpoz_api_key', label: 'API Key', placeholder: 'xpoz-...' },
+    ],
+  },
+  {
     id: 'langsmith',
     title: 'LangSmith (Agent Tracing)',
     description: 'Traces every LLM call and agent step in the LangSmith dashboard. Optional — tracing is disabled when no key is set.',

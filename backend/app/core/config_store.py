@@ -15,6 +15,7 @@ ALL_CONFIG_KEYS = [
     "anthropic_api_key",
     "openai_api_key",
     "voyage_api_key",
+    "xpoz_api_key",
     "langsmith_api_key",
     "langsmith_project",
     "x_client_id",
